@@ -48,7 +48,6 @@ public class Role implements Serializable{
 
    public Role() {
    }
-
 	
    public Role(String rolename, int userid) {
        this.rolename = rolename;
@@ -91,7 +90,6 @@ public class Role implements Serializable{
        this.rolename = rolename;
    }
 
-   
    @Column(name="userid", nullable=false)
    public int getUserid() {
        return this.userid;
@@ -101,7 +99,6 @@ public class Role implements Serializable{
        this.userid = userid;
    }
 
-   
    @Column(name="email")
    public String getEmail() {
        return this.email;
