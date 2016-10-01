@@ -24,7 +24,7 @@ import javax.persistence.TemporalType;
  * @since	1.0.0
  */
 @Entity
-@Table(name="role")
+@Table(name="user")
 public class User implements Serializable{
 
 	private static final long serialVersionUID = 7790622876833971743L;
@@ -37,10 +37,10 @@ public class User implements Serializable{
     private String firstName;
     private String lastName;
     private String phone;
-    private Boolean isactive;
+    private String isactive;
     private Date regdate;
-    private Boolean isnonexpired;
-    private Boolean isnonlocked;
+    private String isnonexpired;
+    private String isnonlocked;
     private Date expDate;
 
    public User() {
@@ -53,7 +53,7 @@ public class User implements Serializable{
        this.password = password;
        this.email = email;
    }
-   public User(Role role, String username, String password, String email, String firstName, String lastName, String phone, Boolean isactive, Date regdate, Boolean isnonexpired, Boolean isnonlocked, Date expDate) {
+   public User(Role role, String username, String password, String email, String firstName, String lastName, String phone, String isactive, Date regdate, String isnonexpired, String isnonlocked, Date expDate) {
       this.role = role;
       this.username = username;
       this.password = password;
@@ -151,11 +151,11 @@ public class User implements Serializable{
 
    
    @Column(name="isactive")
-   public Boolean getIsactive() {
+   public String getIsactive() {
        return this.isactive;
    }
    
-   public void setIsactive(Boolean isactive) {
+   public void setIsactive(String isactive) {
        this.isactive = isactive;
    }
 
@@ -171,21 +171,21 @@ public class User implements Serializable{
 
    
    @Column(name="isnonexpired")
-   public Boolean getIsnonexpired() {
+   public String getIsnonexpired() {
        return this.isnonexpired;
    }
    
-   public void setIsnonexpired(Boolean isnonexpired) {
+   public void setIsnonexpired(String isnonexpired) {
        this.isnonexpired = isnonexpired;
    }
 
    
    @Column(name="isnonlocked")
-   public Boolean getIsnonlocked() {
+   public String getIsnonlocked() {
        return this.isnonlocked;
    }
    
-   public void setIsnonlocked(Boolean isnonlocked) {
+   public void setIsnonlocked(String isnonlocked) {
        this.isnonlocked = isnonlocked;
    }
 

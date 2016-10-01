@@ -5,7 +5,12 @@ package org.javabase.apps.mapper;
 
 import java.util.List;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.javabase.apps.config.DBConfig;
 import org.javabase.apps.entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,42 +20,66 @@ import org.springframework.transaction.annotation.Transactional;
  * @since	1.0.0
  */
 @Repository
+@SuppressWarnings("unchecked")
 public class UserMapperImpl implements UserMapper{
 
+	@Autowired
+	private HibernateTemplate  hibernateTemplate;
+	
 	@Override
 	@Transactional(readOnly=true)
 	public List<User> getAllUsers() {
-		return null;
+		String hql = "FROM User";
+		return (List<User>) hibernateTemplate.find(hql);
 	}
 
 	@Override
 	@Transactional(readOnly=true)
 	public User getUserById(int userId) {
-		return null;
+		return hibernateTemplate.get(User.class, userId);
 	}
 
 	@Override
 	@Transactional
 	public boolean addUser(User user) {
+		hibernateTemplate.save(user);
 		return false;
 	}
 
 	@Override
 	@Transactional
 	public void updateUser(User user) {
-		
+		hibernateTemplate.update(user);
 	}
 
 	@Override
 	@Transactional
 	public void deleteUser(int userId) {
-		
+		hibernateTemplate.delete(userId);
 	}
 
 	@Override
 	@Transactional(readOnly=true)
 	public boolean userExists(String username) {
-		return false;
+		String hql = "FROM User";
+		List<User> userList = (List<User>) hibernateTemplate.find(hql);
+		return userList.size()>0 ? true : false;
+	}
+
+	@Override
+	@Transactional
+	public User getUserByUsername(String username) {
+		String hql = "FROM User WHERE username = '"+username+"'";
+		
+		List<User> userList = (List<User>) hibernateTemplate.find(hql);
+
+		if (userList.size()>0) {
+			User user = userList.get(0);
+			return user;
+		}else {
+			System.out.println("User Not Found");
+			return null;
+		}
 	}
 
 }

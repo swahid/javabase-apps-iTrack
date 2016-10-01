@@ -12,6 +12,13 @@
     <body>
 		<div class="login-page">
 			<div class="form">
+		      <font color="red">
+				<span style="align: center">
+					<c:if test="${not empty param['error']}"> 
+					    <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}" /> 
+					</c:if>
+				</span>
+		      </font>
 			  <form class="register-form" action="registration" method="post">
 			    <input type="text" placeholder="name" name="username"/>
 			    <input type="password" placeholder="password" name="password"/>

@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
  * @author OITI
@@ -19,8 +20,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 		@Autowired
+		UserDetailsService userDetailsService;
+		
+		@Autowired
 	    public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
-			auth.inMemoryAuthentication().withUser("admin").password("123").roles("ADMIN");
+//			auth.inMemoryAuthentication().withUser("admin").password("123").roles("ADMIN");
+			auth.userDetailsService(userDetailsService);
 	    }
 	     
 	    @Override
@@ -29,11 +34,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	    	http.authorizeRequests()
 	    	.antMatchers("/resources/**").permitAll()
 	        .antMatchers("/login").permitAll()
-	        .antMatchers("/login#").permitAll()
 	        .antMatchers("/**").authenticated()
 //	        .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
 	        .and().formLogin().loginPage("/login")
 	        .usernameParameter("username").passwordParameter("password")
+	        .failureUrl("/login?error=1")
 	        .and().csrf()
 	        .and().exceptionHandling().accessDeniedPage("/Access_Denied");
 	    }

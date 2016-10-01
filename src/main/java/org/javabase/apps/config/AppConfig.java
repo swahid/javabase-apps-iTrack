@@ -22,7 +22,7 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableWebMvc
 @Import(DBConfig.class)
 @ComponentScan(basePackages = "org.javabase.apps")
-public class HelloWorldConfiguration extends WebMvcConfigurerAdapter{
+public class AppConfig extends WebMvcConfigurerAdapter{
      
     @Bean
     public ViewResolver viewResolver() {

@@ -16,8 +16,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  * @author  Saurav Wahid<swahidfx@gmail.com>
@@ -33,17 +31,6 @@ public class Role implements Serializable{
     private Integer roleid;
     private String rolename;
     private int userid;
-    private String email;
-    private Date expDate;
-    private String firstName;
-    private Boolean isactive;
-    private Boolean isnonexpired;
-    private Boolean isnonlocked;
-    private String lastName;
-    private String password;
-    private String phone;
-    private Date regdate;
-    private String username;
 	private Set<User> users = new HashSet<User>(0);
 
    public Role() {
@@ -56,17 +43,6 @@ public class Role implements Serializable{
    public Role(String rolename, int userid, String email, Date expDate, String firstName, Boolean isactive, Boolean isnonexpired, Boolean isnonlocked, String lastName, String password, String phone, Date regdate, String username, Set<User> users) {
       this.rolename = rolename;
       this.userid = userid;
-      this.email = email;
-      this.expDate = expDate;
-      this.firstName = firstName;
-      this.isactive = isactive;
-      this.isnonexpired = isnonexpired;
-      this.isnonlocked = isnonlocked;
-      this.lastName = lastName;
-      this.password = password;
-      this.phone = phone;
-      this.regdate = regdate;
-      this.username = username;
       this.users = users;
    }
   
@@ -97,115 +73,6 @@ public class Role implements Serializable{
    
    public void setUserid(int userid) {
        this.userid = userid;
-   }
-
-   @Column(name="email")
-   public String getEmail() {
-       return this.email;
-   }
-   
-   public void setEmail(String email) {
-       this.email = email;
-   }
-
-   @Temporal(TemporalType.TIMESTAMP)
-   @Column(name="expDate", length=19)
-   public Date getExpDate() {
-       return this.expDate;
-   }
-   
-   public void setExpDate(Date expDate) {
-       this.expDate = expDate;
-   }
-
-   
-   @Column(name="firstName")
-   public String getFirstName() {
-       return this.firstName;
-   }
-   
-   public void setFirstName(String firstName) {
-       this.firstName = firstName;
-   }
-
-   
-   @Column(name="isactive")
-   public Boolean getIsactive() {
-       return this.isactive;
-   }
-   
-   public void setIsactive(Boolean isactive) {
-       this.isactive = isactive;
-   }
-
-   
-   @Column(name="isnonexpired")
-   public Boolean getIsnonexpired() {
-       return this.isnonexpired;
-   }
-   
-   public void setIsnonexpired(Boolean isnonexpired) {
-       this.isnonexpired = isnonexpired;
-   }
-
-   
-   @Column(name="isnonlocked")
-   public Boolean getIsnonlocked() {
-       return this.isnonlocked;
-   }
-   
-   public void setIsnonlocked(Boolean isnonlocked) {
-       this.isnonlocked = isnonlocked;
-   }
-
-   
-   @Column(name="lastName")
-   public String getLastName() {
-       return this.lastName;
-   }
-   
-   public void setLastName(String lastName) {
-       this.lastName = lastName;
-   }
-
-   
-   @Column(name="password")
-   public String getPassword() {
-       return this.password;
-   }
-   
-   public void setPassword(String password) {
-       this.password = password;
-   }
-
-   
-   @Column(name="phone")
-   public String getPhone() {
-       return this.phone;
-   }
-   
-   public void setPhone(String phone) {
-       this.phone = phone;
-   }
-
-   @Temporal(TemporalType.TIMESTAMP)
-   @Column(name="regdate", length=19)
-   public Date getRegdate() {
-       return this.regdate;
-   }
-   
-   public void setRegdate(Date regdate) {
-       this.regdate = regdate;
-   }
-
-   
-   @Column(name="username")
-   public String getUsername() {
-       return this.username;
-   }
-   
-   public void setUsername(String username) {
-       this.username = username;
    }
 
    @OneToMany(fetch=FetchType.LAZY, mappedBy="role")

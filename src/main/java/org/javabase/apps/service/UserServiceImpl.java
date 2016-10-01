@@ -51,4 +51,9 @@ public class UserServiceImpl implements UserService{
 		return usermapper.userExists(username);
 	}
 
+	@Override
+	public User getUserByUsername(String username) {
+		return usermapper.getUserByUsername(username);
+	}
+
 }

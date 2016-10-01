@@ -27,8 +27,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @PropertySource("classpath:META-INF/properties/database.properties")
 public class DBConfig {
-        @Autowired
-        private Environment env;
+	
+    @Autowired
+    private Environment env;
+        
 	@Bean
 	public HibernateTemplate hibernateTemplate() {
 		return new HibernateTemplate(sessionFactory());
@@ -64,6 +66,7 @@ public class DBConfig {
             properties.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
             properties.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
             properties.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
+            properties.put("hibernate.enable_lazy_load_no_trans", "true");
             return properties;        
        }	
 }
