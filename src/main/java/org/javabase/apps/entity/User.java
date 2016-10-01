@@ -8,10 +8,15 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * @author  Saurav Wahid<swahidfx@gmail.com>
@@ -24,150 +29,176 @@ public class User implements Serializable{
 
 	private static final long serialVersionUID = 7790622876833971743L;
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="userid")
-	private int userId;
+	private Integer userid;
+    private Role role;
+    private String username;
+    private String password;
+    private String email;
+    private String firstName;
+    private String lastName;
+    private String phone;
+    private Boolean isactive;
+    private Date regdate;
+    private Boolean isnonexpired;
+    private Boolean isnonlocked;
+    private Date expDate;
+
+   public User() {
+   }
+
 	
-	@Column(name="roleid")
-	private int roleId;
-	
-	@Column(name="username")
-	private String username;
-	
-	@Column(name="password")
-	private String password;
-	
-	@Column(name="email")
-	private String email;
-	
-	@Column(name="firstName")
-	private String firstName;
-	
-	@Column(name="lastName")
-	private String lastName;
-	
-	@Column(name="phone")
-	private String phoneNo;
-	
-	@Column(name="isactive")
-	private boolean isActive;
-	
-	@Column(name="isnonexpired")
-	private boolean isnonExpired;
-	
-	@Column(name="isnonlocked")
-	private boolean isnonLocked;
-	
-	@Column(name="regdate")
-	private Date registrationDate;
-	
-	@Column(name="expDate")
-	private Date expireDate;
+   public User(Role role, String username, String password, String email) {
+       this.role = role;
+       this.username = username;
+       this.password = password;
+       this.email = email;
+   }
+   public User(Role role, String username, String password, String email, String firstName, String lastName, String phone, Boolean isactive, Date regdate, Boolean isnonexpired, Boolean isnonlocked, Date expDate) {
+      this.role = role;
+      this.username = username;
+      this.password = password;
+      this.email = email;
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.phone = phone;
+      this.isactive = isactive;
+      this.regdate = regdate;
+      this.isnonexpired = isnonexpired;
+      this.isnonlocked = isnonlocked;
+      this.expDate = expDate;
+   }
+  
+   @Id 
+   @GeneratedValue(strategy=GenerationType.IDENTITY)
+   @Column(name="userid", unique=true, nullable=false)
+   public Integer getUserid() {
+       return this.userid;
+   }
+   
+   public void setUserid(Integer userid) {
+       this.userid = userid;
+   }
 
-	public int getUserId() {
-		return userId;
-	}
+   @ManyToOne(fetch=FetchType.LAZY)
+   @JoinColumn(name="roleid", nullable=false)
+   public Role getRole() {
+       return this.role;
+   }
+   
+   public void setRole(Role role) {
+       this.role = role;
+   }
 
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+   
+   @Column(name="username", nullable=false, length=45)
+   public String getUsername() {
+       return this.username;
+   }
+   
+   public void setUsername(String username) {
+       this.username = username;
+   }
 
-	public int getRoleId() {
-		return roleId;
-	}
+   
+   @Column(name="password", nullable=false, length=45)
+   public String getPassword() {
+       return this.password;
+   }
+   
+   public void setPassword(String password) {
+       this.password = password;
+   }
 
-	public void setRoleId(int roleId) {
-		this.roleId = roleId;
-	}
+   
+   @Column(name="email", nullable=false, length=45)
+   public String getEmail() {
+       return this.email;
+   }
+   
+   public void setEmail(String email) {
+       this.email = email;
+   }
 
-	public String getUsername() {
-		return username;
-	}
+   
+   @Column(name="firstName", length=45)
+   public String getFirstName() {
+       return this.firstName;
+   }
+   
+   public void setFirstName(String firstName) {
+       this.firstName = firstName;
+   }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+   
+   @Column(name="lastName", length=45)
+   public String getLastName() {
+       return this.lastName;
+   }
+   
+   public void setLastName(String lastName) {
+       this.lastName = lastName;
+   }
 
-	public String getPassword() {
-		return password;
-	}
+   
+   @Column(name="phone", length=45)
+   public String getPhone() {
+       return this.phone;
+   }
+   
+   public void setPhone(String phone) {
+       this.phone = phone;
+   }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+   
+   @Column(name="isactive")
+   public Boolean getIsactive() {
+       return this.isactive;
+   }
+   
+   public void setIsactive(Boolean isactive) {
+       this.isactive = isactive;
+   }
 
-	public String getEmail() {
-		return email;
-	}
+   @Temporal(TemporalType.TIMESTAMP)
+   @Column(name="regdate", length=19)
+   public Date getRegdate() {
+       return this.regdate;
+   }
+   
+   public void setRegdate(Date regdate) {
+       this.regdate = regdate;
+   }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+   
+   @Column(name="isnonexpired")
+   public Boolean getIsnonexpired() {
+       return this.isnonexpired;
+   }
+   
+   public void setIsnonexpired(Boolean isnonexpired) {
+       this.isnonexpired = isnonexpired;
+   }
 
-	public String getFirstName() {
-		return firstName;
-	}
+   
+   @Column(name="isnonlocked")
+   public Boolean getIsnonlocked() {
+       return this.isnonlocked;
+   }
+   
+   public void setIsnonlocked(Boolean isnonlocked) {
+       this.isnonlocked = isnonlocked;
+   }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+   @Temporal(TemporalType.TIMESTAMP)
+   @Column(name="expDate", length=19)
+   public Date getExpDate() {
+       return this.expDate;
+   }
+   
+   public void setExpDate(Date expDate) {
+       this.expDate = expDate;
+   }
 
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getPhoneNo() {
-		return phoneNo;
-	}
-
-	public void setPhoneNo(String phoneNo) {
-		this.phoneNo = phoneNo;
-	}
-
-	public boolean isActive() {
-		return isActive;
-	}
-
-	public void setActive(boolean isActive) {
-		this.isActive = isActive;
-	}
-
-	public boolean isIsnonExpired() {
-		return isnonExpired;
-	}
-
-	public void setIsnonExpired(boolean isnonExpired) {
-		this.isnonExpired = isnonExpired;
-	}
-
-	public boolean isIsnonLocked() {
-		return isnonLocked;
-	}
-
-	public void setIsnonLocked(boolean isnonLocked) {
-		this.isnonLocked = isnonLocked;
-	}
-
-	public Date getRegistrationDate() {
-		return registrationDate;
-	}
-
-	public void setRegistrationDate(Date registrationDate) {
-		this.registrationDate = registrationDate;
-	}
-
-	public Date getExpireDate() {
-		return expireDate;
-	}
-
-	public void setExpireDate(Date expireDate) {
-		this.expireDate = expireDate;
-	}
 	
 
 }
