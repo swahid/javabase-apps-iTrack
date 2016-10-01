@@ -7,10 +7,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.javabase.apps.entity.User;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,7 +23,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserDetailesServiceImpl implements UserDetailsService{
 	
-	private static final Logger log = LoggerFactory.getLogger(UserDetailesServiceImpl.class);
 	
 	@Autowired
 	UserService userservice;
@@ -34,11 +30,10 @@ public class UserDetailesServiceImpl implements UserDetailsService{
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
-		log.info("username {}", username);
 		User user = userservice.getUserByUsername(username);
+		
 		if (user != null) {
 			String password = user.getPassword();
-			log.info("password {}", password);
 			boolean enabled= user.getIsactive().equalsIgnoreCase("Y");
 			boolean accountNonExpired = user.getIsnonexpired().equalsIgnoreCase("Y");
 			boolean credentialsNonExpired= user.getIsnonexpired().equalsIgnoreCase("Y");
@@ -52,7 +47,6 @@ public class UserDetailesServiceImpl implements UserDetailsService{
 					new org.springframework.security.core.userdetails.User(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
 			return securedUser;
 		}else {
-			log.info("Error {}", "Invalid User");
 			 throw new UsernameNotFoundException("Invalid User");
 		}
 		

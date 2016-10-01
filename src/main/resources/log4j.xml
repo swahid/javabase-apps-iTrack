@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="org.javabase.mvc">
+	<logger name="org.javabase.apps">
 		<level value="info" />
 	</logger>
 	
