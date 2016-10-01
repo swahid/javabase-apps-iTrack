@@ -30,7 +30,6 @@ public class Role implements Serializable{
 
     private Integer roleid;
     private String rolename;
-    private int userid;
 	private Set<User> users = new HashSet<User>(0);
 
    public Role() {
@@ -38,11 +37,9 @@ public class Role implements Serializable{
 	
    public Role(String rolename, int userid) {
        this.rolename = rolename;
-       this.userid = userid;
    }
    public Role(String rolename, int userid, String email, Date expDate, String firstName, Boolean isactive, Boolean isnonexpired, Boolean isnonlocked, String lastName, String password, String phone, Date regdate, String username, Set<User> users) {
       this.rolename = rolename;
-      this.userid = userid;
       this.users = users;
    }
   
@@ -64,15 +61,6 @@ public class Role implements Serializable{
    
    public void setRolename(String rolename) {
        this.rolename = rolename;
-   }
-
-   @Column(name="userid", nullable=false)
-   public int getUserid() {
-       return this.userid;
-   }
-   
-   public void setUserid(int userid) {
-       this.userid = userid;
    }
 
    @OneToMany(fetch=FetchType.LAZY, mappedBy="role")

@@ -74,9 +74,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Logo -->
         <a href="${index}" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>iTrack</b></span>
+          <span class="logo-mini"><b> iTrack </b></span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>iTrack</b>System</span>
+          <span class="logo-lg"><b>iTrack </b>System </span>
         </a>
 
         <!-- Header Navbar -->
@@ -96,15 +96,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <!-- The user image in the navbar-->
                   <img src="resources/images/avatar.png" class="user-image" alt="User Image">
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                  <span class="hidden-xs">Saurav Wahid</span>
+                  <span class="hidden-xs">${user.username}</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- The user image in the menu -->
                   <li class="user-header">
                     <img src="resources/images/avatar.png" class="img-circle" alt="User Image">
                     <p>
-                      Saurav Wahid - Web Developer
-                      <small>Member since MAR 2016</small>
+                      ${user.firstName} ${user.lastName} - ${user.role.rolename}
+                      <small>Member since ${user.regdate}</small>
                     </p>
                   </li>
                   <!-- Menu Footer-->
@@ -113,7 +113,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <a href="profile" class="btn btn-default btn-flat">Profile</a>
                     </div>
                     <div class="pull-right">
-                      <a href="${index}logout" class="btn btn-default btn-flat">Sign out</a>
+                      <a href='<c:url value="/logout"></c:url>' class="btn btn-default btn-flat">Sign out</a>
                     </div>
                   </li>
                 </ul>

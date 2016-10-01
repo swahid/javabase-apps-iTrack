@@ -7,10 +7,10 @@
 <t:dashboard>
 	<jsp:body>
 		<h1>
-			Hello world!  
+			Hello <c:out value="${user.firstName}"></c:out>
 		</h1>
 
-		<P>  The time on the server is ${serverTime}. </P>
+		<P>  The time on the server is <c:out value="${user.role.rolename}"></c:out> </P>
 	
 	</jsp:body>
 </t:dashboard>

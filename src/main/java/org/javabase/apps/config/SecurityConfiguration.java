@@ -33,6 +33,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	       
 	    	http.authorizeRequests()
 	    	.antMatchers("/resources/**").permitAll()
+	    	.antMatchers("/404").permitAll()
 	        .antMatchers("/login").permitAll()
 	        .antMatchers("/**").authenticated()
 //	        .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
@@ -40,6 +41,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	        .usernameParameter("username").passwordParameter("password")
 	        .failureUrl("/login?error=1")
 	        .and().csrf()
-	        .and().exceptionHandling().accessDeniedPage("/Access_Denied");
+	        .and().logout().logoutUrl("/logout")
+	        .logoutSuccessUrl("/login")
+	        .and().exceptionHandling().accessDeniedPage("/404");
 	    }
 }
