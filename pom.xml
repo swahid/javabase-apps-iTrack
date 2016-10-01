@@ -207,4 +207,19 @@
             </plugin>
         </plugins>
     </build>
+    <issueManagement>
+    	<url>
+    		https://github.com/swahid/javabase-apps-iTrack/issues
+    	</url>
+    	<system>
+    		javabase-apps-iTrack
+    	</system>
+    </issueManagement>
+    <url>
+    	https://github.com/swahid/javabase-apps-iTrack
+    </url>
+    <description>
+	    This project develop for tracking team and create e issue and track team performance.
+		This is an open source project.
+	</description>
 </project>
