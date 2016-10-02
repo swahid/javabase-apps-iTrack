@@ -2,7 +2,7 @@
 <%@attribute name="header" fragment="true" %>
 <%@attribute name="footer" fragment="true" %>
 <%@attribute name="sidebar" fragment="true" %>
-<%@attribute name="contentheader" fragment="true" %>
+<%@attribute name="contentHeader" fragment="true" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!--
@@ -132,7 +132,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <img src="resources/images/avatar.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p>Saurav Wahid</p>
+              <p>${user.firstName} ${user.lastName}</p>
               <!-- Status -->
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -168,13 +168,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-       <!--    <h1>
-            Dashboard
-          </h1> -->
-          <ol class="breadcrumb">
-            <li><a href="/ims"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">admin</li>
-          </ol>
+       		<jsp:invoke fragment="contentHeader"/>
         </section>
 
         <!-- Main content -->
