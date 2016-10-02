@@ -5,11 +5,12 @@
 </head>
 
 <t:dashboard>
+	
 	<jsp:attribute name="contentHeader">
 		<div class="row">
         <div class="col-xs-12">
             <div class="box-header">
-              <h3 class="box-title">Open Issue</h3>
+              <h3 class="box-title ">Open Issue</h3>
               	<button type="submit" class="btn btn-Success pull-right">New issue</button>
             </div>
           </div>
@@ -38,18 +39,19 @@
               <table class="table table-hover">
                 <tr>
                   <th>No#</th>
-                  <th>Issue</th>
+                  <th style="width: 500px">Issue</th>
                   <th>Status</th>
                   <th>Creator</th>
                   <th>Assignee</th>
-                  <th>Assignee</th>
+                  <th>Date</th>
                 </tr>
                 <tr>
                   <td>183</td>
                   <td>John Doe</td>
                   <td><span class="label label-success">Open</span></td>
                   <td>11-7-2014</td>
-                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                  <td>Bacon </td>
+                  <td>Bacon </td>
                 </tr>
               </table>
             </div>
