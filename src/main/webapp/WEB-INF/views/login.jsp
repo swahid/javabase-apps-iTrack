@@ -20,14 +20,14 @@
 				</span>
 		      </font>
 			  <form class="register-form" action="registration" method="post">
-			    <input type="text" placeholder="name" name="username"/>
+			    <input type="text" placeholder="name" name="username" autocomplete="off"/>
 			    <input type="password" placeholder="password" name="password"/>
-			    <input type="text" placeholder="email address" name="email"/>
+			    <input type="text" placeholder="email address" name="email" autocomplete="off"/>
 			    <button>create</button>
 			    <p class="message">Already registered? <a href="#" onclick="toggle_visibility(); return false;" class="message">Sign In</a></p>
 			    </form>
 			    <form class="login-form" action="<c:url value='/login' />" method="post">
-			      <input type="text" name="username" placeholder="username"/>
+			      <input type="text" name="username" placeholder="username" autocomplete="off"/>
 			      <input type="password" name="password" placeholder="password"/>
 			      <input type="hidden" name="${_csrf.parameterName}"   value="${_csrf.token}" />
 			      <button>login</button>

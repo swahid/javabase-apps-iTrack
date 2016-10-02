@@ -11,7 +11,6 @@
         <div class="col-xs-12">
             <div class="box-header">
               <h3 class="box-title ">Open Issue</h3>
-              	<!-- <button onclick="createIssueForm_Popup(); return false;" class="btn btn-Success pull-right">New issue</button> -->
               	<button class="btn btn-success pull-right" onclick="createIssueForm_Popup();return false;">New Issue</button>
             </div>
           </div>
@@ -29,18 +28,15 @@
             <form role="form">
               <div class="box-body">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
-                  <input type="text" class="form-control" placeholder="Title">
+                  <input type="text" class="form-control" placeholder="Title" autocomplete="off">
                 </div>
                 <!-- Dscription textarea -->
                 <div class="form-group">
-                  <label>Textarea</label>
                   <textarea class="form-control" rows="3" placeholder="Description"></textarea>
                 </div>
                 	<!-- Assignees Combo -->
                 <div class="form-group">
-                <label>Assignees</label>
-                <select class="form-control select2" style="width: 100%;" data-placeholder="Select a Assignees">
+                <select class="form-control select2" style="width: 100%;" >
                   <option selected="selected">Select a Assignees</option>
                   <option>Saurav</option>
                   <option>Rashed</option>
@@ -62,7 +58,7 @@
         <div class="col-xs-12">
           <div class="box box-success">
             <div class="box-header">
-              <h3 class="box-title">List Of Issue</h3>
+              <h3 class="box-title">Pending Issue</h3>
 
               <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
