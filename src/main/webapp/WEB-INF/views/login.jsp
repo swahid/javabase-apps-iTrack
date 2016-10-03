@@ -19,10 +19,12 @@
 					</c:if>
 				</span>
 		      </font>
-			  <form class="register-form" action="registration" method="post">
-			    <input type="text" placeholder="name" name="username" autocomplete="off"/>
-			    <input type="password" placeholder="password" name="password"/>
-			    <input type="email" placeholder="email address" name="email" autocomplete="off"/>
+			  <form class="register-form" id="registerForm" action="#" method="post">
+			    <input type="text" placeholder="name" id="username" autocomplete="off"/>
+			    <input type="password" placeholder="password" id="password"/>
+			    <input type="email" placeholder="email address" id="email" autocomplete="off"/>
+			    <input type="hidden" id="csrfToken" value="${_csrf.token}"/>
+				<input type="hidden" id="csrfHeader" value="${_csrf.headerName}"/>
 			    <button>create</button>
 			    <p class="message">Already registered? <a href="#" onclick="toggle_visibility(); return false;" class="message">Sign In</a></p>
 			    </form>

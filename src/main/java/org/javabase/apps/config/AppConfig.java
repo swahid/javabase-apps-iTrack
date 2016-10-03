@@ -50,4 +50,6 @@ public class AppConfig extends WebMvcConfigurerAdapter{
 		resolver.setCookieMaxAge(4800);
 		return resolver;
     }
+    
+    
 }

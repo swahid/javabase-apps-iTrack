@@ -39,8 +39,14 @@ public class UserMapperImpl implements UserMapper{
 	@Override
 	@Transactional
 	public boolean addUser(User user) {
-		hibernateTemplate.save(user);
-		return false;
+		try {
+			hibernateTemplate.save(user);
+			
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override

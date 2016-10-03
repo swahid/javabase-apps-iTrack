@@ -11,9 +11,10 @@
 		<java-version>1.7</java-version>
 		<springframework.version>4.0.2.RELEASE</springframework.version>
         <springsecurity.version>4.0.2.RELEASE</springsecurity.version>
+		<hibernate.version>4.3.5.Final</hibernate.version>
+		<jackson.version>2.6.3</jackson.version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
-		<hibernate.version>4.3.5.Final</hibernate.version>
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -82,7 +83,20 @@
 		    <artifactId>mysql-connector-java</artifactId>
 		    <version>5.1.35</version>
 		</dependency>
-			    
+		
+		 <!-- Need this for json to/from object -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
