@@ -5,9 +5,6 @@ package org.javabase.apps.mapper;
 
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.javabase.apps.config.DBConfig;
 import org.javabase.apps.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateTemplate;
@@ -67,7 +64,7 @@ public class UserMapperImpl implements UserMapper{
 	}
 
 	@Override
-	@Transactional
+	@Transactional(readOnly=true)
 	public User getUserByUsername(String username) {
 		String hql = "FROM User WHERE username = '"+username+"'";
 		

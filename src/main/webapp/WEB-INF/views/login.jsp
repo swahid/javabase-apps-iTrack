@@ -6,7 +6,7 @@
         <title>Sign in Login</title>
         <link href="<c:url value='/resources/css/login.css' />" rel="stylesheet"></link>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script type="text/javascript" src="<c:url value='/resources/js/login.js' />"></script>
+        <script type="text/javascript" src="<c:url value='/resources/js/funtions/login.js' />"></script>
     </head>
  
     <body>
@@ -22,7 +22,7 @@
 			  <form class="register-form" action="registration" method="post">
 			    <input type="text" placeholder="name" name="username" autocomplete="off"/>
 			    <input type="password" placeholder="password" name="password"/>
-			    <input type="text" placeholder="email address" name="email" autocomplete="off"/>
+			    <input type="email" placeholder="email address" name="email" autocomplete="off"/>
 			    <button>create</button>
 			    <p class="message">Already registered? <a href="#" onclick="toggle_visibility(); return false;" class="message">Sign In</a></p>
 			    </form>
