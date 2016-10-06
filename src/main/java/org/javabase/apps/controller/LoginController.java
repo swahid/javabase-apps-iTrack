@@ -19,7 +19,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
+/**
+ * @author  Saurav Wahid<swahidfx@gmail.com>
+ * @version	1.0.0
+ * @since	1.0.0
+ */
 @Controller
 public class LoginController {
 	

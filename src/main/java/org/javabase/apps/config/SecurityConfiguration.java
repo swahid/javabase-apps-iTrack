@@ -12,8 +12,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
- * @author OITI
- *
+ * @author  Saurav Wahid<swahidfx@gmail.com>
+ * @version	1.0.0
+ * @since	1.0.0
  */
 @Configuration
 @EnableWebSecurity

@@ -1,4 +1,9 @@
 <%@ include file="/WEB-INF/tags/layout/includes.jsp"%>
+<!-- 
+ @author  Saurav Wahid<swahidfx@gmail.com>
+ @version	1.0.0
+ @since	1.0.0
+ -->
 <t:dashboard>
 	<jsp:attribute name="header">
 		<!-- Header title here -->

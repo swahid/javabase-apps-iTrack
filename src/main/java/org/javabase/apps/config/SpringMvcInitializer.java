@@ -1,7 +1,11 @@
 package org.javabase.apps.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-
+/**
+ * @author  Saurav Wahid<swahidfx@gmail.com>
+ * @version	1.0.0
+ * @since	1.0.0
+ */
 public class SpringMvcInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 	@Override
