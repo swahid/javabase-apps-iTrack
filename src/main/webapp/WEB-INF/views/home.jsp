@@ -91,7 +91,7 @@
                   <th>Date</th>
                 </tr>
                 <thead>
-                <tbody id="tableBody" class="success">
+                <tbody id="tableBody">
                             
                 </tbody>
               </table>

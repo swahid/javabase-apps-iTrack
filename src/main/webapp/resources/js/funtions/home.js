@@ -33,7 +33,7 @@ $(document).ready(function($) {
 					data	= resonse.data;
 				if (data != null) {
 					$("#tableBody").empty()
-					$("#tableBody").addClass("success")
+					$("#tableBody").addClass("table table-hover")
 					for (var i = 0; i < data.length; i++) {
 						$("#tableBody").append("<tr>");
 		                $("#tableBody").append("<td>"+data[i].issueid+"</td>");
@@ -63,12 +63,12 @@ $(document).ready(function($) {
 					data	= resonse.data;
 				if (data != null) {
 					$("#tableBody").empty()
-					$("#tableBody").addClass("success")
+					$("#tableBody").addClass("table table-hover")
 					for (var i = 0; i < data.length; i++) {
 						$("#tableBody").append("<tr>");
 		                $("#tableBody").append("<td>"+data[i].issueid+"</td>");
 		                $("#tableBody").append("<td>"+data[i].issuetitle+"</td>");
-		                $("#tableBody").append("<td>"+data[i].state+"</td>");
+		                $("#tableBody").append("<td class='label label-success'>"+data[i].state+"</td>");
 		                $("#tableBody").append("<td>"+data[i].createby+"</td>");
 		                $("#tableBody").append("<td>"+data[i].assignee+"</td>");
 		                $("#tableBody").append("<td>"+data[i].createdate+"</td>");

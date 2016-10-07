@@ -76,6 +76,7 @@ public class HomeController {
 	public Map<String, Object> createIssue(@RequestBody Issue issue){
 		Map<String, Object> response= new HashMap<String, Object>();
 		issue.setCreatedate(new Date());
+		issue.setState("Active");
 		if (issueservice.insertIssue(issue)) {
 			return loadIssue();
 		}else {
