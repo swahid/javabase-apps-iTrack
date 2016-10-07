@@ -29,10 +29,12 @@ import javax.persistence.TemporalType;
 @Table(name="issue",catalog="itrack")
 public class Issue  implements java.io.Serializable {
 
-	 private static final long serialVersionUID = 8195090780857452213L;
+	 private static final long serialVersionUID = 6277598856708113400L;
 	
 	 private Integer issueid;
      private Project project;
+     private String issuetitle;
+     private String issueDescription;
      private String priority;
      private String type;
      private String state;
@@ -60,8 +62,10 @@ public class Issue  implements java.io.Serializable {
     public Issue() {
     }
 
-    public Issue(Project project, String priority, String type, String state, String assignee, Date createdate, String createby, Date fixeddate, String fixedby, String tester, String testdate, String verifiedby, Date verifieddate, String istested, String isverified, String ispending, String issubmit, Date submitdate, String submitby, String isfixed, Date submissiondate, String isclosed, String isexpried, Set<Comments> commentses) {
+    public Issue(Project project, String issuetitle, String issueDescription, String priority, String type, String state, String assignee, Date createdate, String createby, Date fixeddate, String fixedby, String tester, String testdate, String verifiedby, Date verifieddate, String istested, String isverified, String ispending, String issubmit, Date submitdate, String submitby, String isfixed, Date submissiondate, String isclosed, String isexpried, Set<Comments> commentses) {
        this.project = project;
+       this.issuetitle = issuetitle;
+       this.issueDescription = issueDescription;
        this.priority = priority;
        this.type = type;
        this.state = state;
@@ -87,9 +91,8 @@ public class Issue  implements java.io.Serializable {
        this.commentses = commentses;
     }
    
-     @Id @GeneratedValue(strategy=IDENTITY)
-
     
+    @Id @GeneratedValue(strategy=IDENTITY)
     @Column(name="issueid", unique=true, nullable=false)
     public Integer getIssueid() {
         return this.issueid;
@@ -99,7 +102,7 @@ public class Issue  implements java.io.Serializable {
         this.issueid = issueid;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="projectid")
     public Project getProject() {
         return this.project;
@@ -109,8 +112,25 @@ public class Issue  implements java.io.Serializable {
         this.project = project;
     }
 
-    
-    @Column(name="priority", length=45)
+    @Column(name="issuetitle", length=45)
+    public String getIssuetitle() {
+		return issuetitle;
+	}
+
+	public void setIssuetitle(String issuetitle) {
+		this.issuetitle = issuetitle;
+	}
+	
+	@Column(name="issueDescription")
+	public String getIssueDescription() {
+		return issueDescription;
+	}
+
+	public void setIssueDescription(String issueDescription) {
+		this.issueDescription = issueDescription;
+	}
+
+	@Column(name="priority", length=45)
     public String getPriority() {
         return this.priority;
     }

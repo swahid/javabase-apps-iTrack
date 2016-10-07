@@ -30,23 +30,26 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form">
+            <form role="form" id="issueCreateForm" action="#" method="post" autocomplete="on">
               <div class="box-body">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Title" autocomplete="off">
+                  <input type="text" id=issueTitle class="form-control" placeholder="Title">
                 </div>
                 <!-- Dscription textarea -->
                 <div class="form-group">
-                  <textarea class="form-control" rows="3" placeholder="Description"></textarea>
+                  <textarea class="form-control" id="issueDescription" rows="3" placeholder="Description"></textarea>
                 </div>
                 	<!-- Assignees Combo -->
                 <div class="form-group">
-                <select class="form-control select2" style="width: 100%;" >
+                <select class="form-control select2" style="width: 100%;" id="assignee">
                   <option selected="selected">Select a Assignees</option>
                   <option>Saurav</option>
                   <option>Rashed</option>
                 </select>
               </div>
+              <input type="hidden" id="csrfToken" value="${_csrf.token}"/>
+			  <input type="hidden" id="csrfHeader" value="${_csrf.headerName}"/>
+			  <input type="hidden" id="username" value="${user.username}"/>
               <!-- /.form-group -->
               </div>
               <!-- /.box-body -->
@@ -77,7 +80,8 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
-              <table class="table table-hover">
+              <table class="table table-hover" id="issueTable">
+               <thead>
                 <tr>
                   <th>No#</th>
                   <th style="width: 500px">Issue</th>
@@ -86,14 +90,10 @@
                   <th>Assignee</th>
                   <th>Date</th>
                 </tr>
-                <tr>
-                  <td>183</td>
-                  <td>John Doe</td>
-                  <td><span class="label label-success">Open</span></td>
-                  <td>11-7-2014</td>
-                  <td>Bacon </td>
-                  <td>Bacon </td>
-                </tr>
+                <thead>
+                <tbody id="tableBody" class="success">
+                            
+                </tbody>
               </table>
             </div>
             <!-- /.box-body -->
