@@ -31,18 +31,17 @@ $(document).ready(function($) {
 			success  : function(resonse) {
 				var message = "registration Sucess",
 					data	= resonse.data;
+				$('#issueTable tr:gt(0)').remove();
 				if (data != null) {
-					$("#tableBody").empty()
-					$("#tableBody").addClass("table table-hover")
 					for (var i = 0; i < data.length; i++) {
-						$("#tableBody").append("<tr>");
-		                $("#tableBody").append("<td>"+data[i].issueid+"</td>");
-		                $("#tableBody").append("<td>"+data[i].issuetitle+"</td>");
-		                $("#tableBody").append("<td>"+data[i].state+"</td>");
-		                $("#tableBody").append("<td>"+data[i].createby+"</td>");
-		                $("#tableBody").append("<td>"+data[i].assignee+"</td>");
-		                $("#tableBody").append("<td>"+data[i].createdate+"</td>");
-		                $("#tableBody").append("<tr>");
+						$('#issueTable tr:last').after("<tr>" +
+								"<td>"+data[i].issueid+"</td>" +
+								"<td>"+data[i].issuetitle+"</td>" +
+								"<td>"+"<span class='label label-success'>"+data[i].state+"</span>"+"</td>" +
+								"<td>"+data[i].createby+"</td>" +
+								"<td>"+data[i].assignee+"</td>" +
+								"<td>"+data[i].createdate+"</td>" +
+								"<tr>");
 					}
 				}
 			},
@@ -60,19 +59,18 @@ $(document).ready(function($) {
 			url      : url,
 			success  : function(resonse) {
 				var message = "registration Sucess",
-					data	= resonse.data;
+				data	= resonse.data;
+				$('#issueTable tr:gt(0)').remove();
 				if (data != null) {
-					$("#tableBody").empty()
-					$("#tableBody").addClass("table table-hover")
 					for (var i = 0; i < data.length; i++) {
-						$("#tableBody").append("<tr>");
-		                $("#tableBody").append("<td>"+data[i].issueid+"</td>");
-		                $("#tableBody").append("<td>"+data[i].issuetitle+"</td>");
-		                $("#tableBody").append("<td class='label label-success'>"+data[i].state+"</td>");
-		                $("#tableBody").append("<td>"+data[i].createby+"</td>");
-		                $("#tableBody").append("<td>"+data[i].assignee+"</td>");
-		                $("#tableBody").append("<td>"+data[i].createdate+"</td>");
-		                $("#tableBody").append("<tr>");
+						$('#issueTable tr:last').after("<tr>" +
+								"<td>"+data[i].issueid+"</td>" +
+								"<td>"+data[i].issuetitle+"</td>" +
+								"<td>"+"<span class='label label-success'>"+data[i].state+"</span>"+"</td>" +
+								"<td>"+data[i].createby+"</td>" +
+								"<td>"+data[i].assignee+"</td>" +
+								"<td>"+data[i].createdate+"</td>" +
+								"<tr>");
 					}
 				}
 			},
@@ -83,3 +81,4 @@ $(document).ready(function($) {
 		});
 	});
 });
+

@@ -81,19 +81,14 @@
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover" id="issueTable">
-               <thead>
                 <tr>
-                  <th>No#</th>
+                  <th style="width: 50px">No#</th>
                   <th style="width: 500px">Issue</th>
                   <th>Status</th>
                   <th>Creator</th>
                   <th>Assignee</th>
                   <th>Date</th>
                 </tr>
-                <thead>
-                <tbody id="tableBody">
-                            
-                </tbody>
               </table>
             </div>
             <!-- /.box-body -->
