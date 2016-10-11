@@ -43,4 +43,10 @@ public class IssueMapperImpl implements IssueMapper{
 		}
 	}
 
+	@Override
+	@Transactional(readOnly=true)
+	public Issue getIssueById(int id) {
+		return (Issue) session.getCurrentSession().get(Issue.class, id);
+	}
+
 }

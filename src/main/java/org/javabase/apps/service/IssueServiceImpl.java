@@ -31,4 +31,9 @@ public class IssueServiceImpl implements IssueService{
 		return mapper.insertIssue(issue);
 	}
 
+	@Override
+	public Issue getIssueById(int id) {
+		return mapper.getIssueById(id);
+	}
+
 }

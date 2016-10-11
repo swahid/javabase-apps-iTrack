@@ -5,6 +5,9 @@ function createIssueForm_Popup(){
 	$('#createIssueForm').animate({height: "toggle", opacity: "toggle"}, "slow");
 }
 
+/*
+ * jquery document.ready() funtion for home page
+ */
 $(document).ready(function($) {
 	$("#issueCreateForm").submit(function(event) {
 		event.preventDefault();
@@ -31,19 +34,8 @@ $(document).ready(function($) {
 			success  : function(resonse) {
 				var message = "registration Sucess",
 					data	= resonse.data;
-				$('#issueTable tr:gt(0)').remove();
-				if (data != null) {
-					for (var i = 0; i < data.length; i++) {
-						$('#issueTable tr:last').after("<tr>" +
-								"<td>"+data[i].issueid+"</td>" +
-								"<td>"+data[i].issuetitle+"</td>" +
-								"<td>"+"<span class='label label-success'>"+data[i].state+"</span>"+"</td>" +
-								"<td>"+data[i].createby+"</td>" +
-								"<td>"+data[i].assignee+"</td>" +
-								"<td>"+data[i].createdate+"</td>" +
-								"<tr>");
-					}
-				}
+				
+				addIssueTable(data);
 			},
 			error 	 : function(e) {
 				console.log("ERROR: ", e);
@@ -58,20 +50,8 @@ $(document).ready(function($) {
 			url      : url,
 			success  : function(resonse) {
 				var message = "registration Sucess",
-				data	= resonse.data;
-				$('#issueTable tr:gt(0)').remove();
-				if (data != null) {
-					for (var i = 0; i < data.length; i++) {
-						$('#issueTable tr:last').after("<tr>" +
-								"<td>"+data[i].issueid+"</td>" +
-								"<td>"+data[i].issuetitle+"</td>" +
-								"<td>"+"<span class='label label-success'>"+data[i].state+"</span>"+"</td>" +
-								"<td>"+data[i].createby+"</td>" +
-								"<td>"+data[i].assignee+"</td>" +
-								"<td>"+data[i].createdate+"</td>" +
-								"<tr>");
-					}
-				}
+				    data	= resonse.data;
+				addIssueTable(data);
 			},
 			error 	 : function(e) {
 				console.log("ERROR: ", e);
@@ -79,4 +59,49 @@ $(document).ready(function($) {
 		});
 	});
 });
+/*
+ * end jquery document.ready() funtion for home page
+ */
 
+function addIssueTable(data) {
+	var	state, issueId, issueTitle, stateClass, date;
+	$('#issueTable tr:gt(0)').remove();
+	if (data != null) {
+		for (var i = 0; i < data.length; i++) {
+			issueId 	= data[i].issueid;
+			issueTitle 	= data[i].issuetitle;
+			state 		= data[i].state;
+			date		= data[i].createdate;
+			
+			/*
+			 * checking which type of state and change the class
+			 */
+			if (state) {
+				switch (state) {
+				  case "Active":
+					  stateClass ="<span class='label label-success'>"+state+"</span>"
+				    break;
+				  case "close":
+					  stateClass ="<span class='label label-danger'>"+state+"</span>"
+					  break;
+				}
+			}else {
+				stateClass ="<span class='label label-danger'>"+"null"+"</span>"
+			}
+			
+			// formate date by moment.js funtion
+			date = moment(date).format("DD MMM YYYY");
+			/*
+			 * following method create for dynamic add table row
+			 */
+			$('#issueTable tr:last').after("<tr>" +
+					"<td>"+"<a href='"+'issue/'+issueId+"' targer='_blank'>"+issueId+"</a>"+"</td>" +
+					"<td>"+"<a href='"+'issue/'+issueId+"' targer='_blank'>"+issueTitle+"</a>"+"</td>" +
+					"<td>"+stateClass+"</td>" +
+					"<td>"+data[i].createby+"</td>" +
+					"<td>"+data[i].assignee+"</td>" +
+					"<td>"+date+"</td>" +
+					"<tr>");
+		}
+	}
+}

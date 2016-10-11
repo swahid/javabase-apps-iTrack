@@ -9,7 +9,7 @@
 		<!-- Header title here -->
 		<title>iTrack Dashboard</title>
 		<!-- home page javascript functions add -->
-		<script src="resources/js/funtions/home.js"></script>
+		<script src="<c:url value='/resources/js/funtions/home.js' />"></script>
 	</jsp:attribute>
 	<jsp:attribute name="contentHeader">
 		<div class="row">

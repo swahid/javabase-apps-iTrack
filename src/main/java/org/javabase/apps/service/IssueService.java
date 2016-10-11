@@ -15,6 +15,7 @@ import org.javabase.apps.entity.Issue;
 public interface IssueService {
 	
 	public List<Issue> getAllIssue();
+	public Issue getIssueById(int id);
 	public boolean insertIssue(Issue issue);
 	
 
