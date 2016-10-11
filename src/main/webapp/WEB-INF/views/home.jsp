@@ -4,7 +4,7 @@
  @version	1.0.0
  @since	1.0.0
  -->
-<t:dashboard>
+<t:dashboard_top>
 	<jsp:attribute name="header">
 		<!-- Header title here -->
 		<title>iTrack Dashboard</title>
@@ -82,7 +82,7 @@
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover" id="issueTable">
                 <tr>
-                  <th style="width: 50px">No#</th>
+                  <th style="width: 80px">Issue Id</th>
                   <th style="width: 500px">Issue</th>
                   <th>Status</th>
                   <th>Creator</th>
@@ -98,5 +98,4 @@
       </div>
 	<!-- row Table end-->
 	</jsp:body>
-</t:dashboard>
-</html>
+</t:dashboard_top>

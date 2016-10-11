@@ -50,7 +50,7 @@ $(document).ready(function($) {
 			}
 		});
 	});
-	$(window).load(function() {
+	$(window).load(function(event) {
 		event.preventDefault();
 		var url = "issue/load";
 		$.ajax({
