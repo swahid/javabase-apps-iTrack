@@ -8,54 +8,90 @@
  <t:dashboard_top>
 	<jsp:attribute name="header">
 	</jsp:attribute>
-
 	<jsp:body>
-	<div class="col-md-8">
-		<div>
-			<h2>${issue.issueid} ${issue.issuetitle}</h2>
-			<span>issue created by ${issue.createby} ${issue.createdate}</span>
+	 <div class="row">
+	<!-- separe div ny column for issue description -->
+		<div class="col-md-8">
+		<!-- div separate for issue title -->
+		<div class="row-md-8" >
+          <div class="box box-success" style="height: 400px; width: 100%">
+            <div class="box-header with-border">
+              <h3 class="box-title"> ${issue.issueid} ${issue.issuetitle}</h3><br/>
+				<span>issue created by ${issue.createby} ${issue.createdate}</span>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body box-success">
+              <p>${issue.issueDescription}</p>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+		<!-- comments section -->
+		<div class="row-md-4" >
+          <div class="box box-success">
+            <div class="box-header with-border">
+              <h3 class="box-title"> Comments</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body box-success">
+              <p>${issue.issueDescription}</p>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- comments section end-->
 		</div>
-		<div style="height: 300px;width: 100%">
-			<p>${issue.issueDescription}</p>
+	<!-- spearate div ny column width for table -->
+		<div class="col-md-4">
+	          <div class="box box-success">
+	            <div class="box-header">
+	              <h3 class="box-title">Showing issue #${issue.issueid}</h3>
+	            </div>
+	            <!-- /.box-header -->
+	            <div class="box-body table-responsive no-padding">
+	              <table class="table table-hover" >
+	                <tr>
+	                  <th>Project</th>
+	                  <td>${issue.project.proejcttitle}</td>
+	                </tr>
+	                <tr>
+	                  <th>Priority</th>
+	                  <td>${issue.priority}</td>
+	                </tr>
+	                <tr>
+	                  <th>Type</th>
+	                  <td>${issue.type}</td>
+	                </tr>
+	                <tr>
+	                  <th>Assignee</th>
+	                  <td>${issue.assignee}</td>
+	                </tr>
+	                <tr>
+	                  <th>State</th>
+	                  <td>${issue.state}</td>
+	                </tr>
+	                <tr>
+	                  <th>Fixed Date</th>
+	                  <td>${issue.fixeddate}</td>
+	                </tr>
+	                <tr>
+	                  <th>Fixed By</th>
+	                  <td>${issue.fixedby}</td>
+	                </tr>
+	                <tr>
+	                  <th>Verified By</th>
+	                  <td>${issue.verifiedby}</td>
+	                </tr>
+	              </table>
+	            </div>
+	            <!-- /.box-body -->
+	          </div>
+	          <!-- /.box -->
 		</div>
+		<!-- column table section end -->
 	</div>
-	<div class="col-md-4">
-		<div class="box-body table-responsive no-padding">
-              <table class="table table-hover">
-                <tr>
-                  <th>Project</th>
-                  <td>${issue.project.proejcttitle}</td>
-                </tr>
-                <tr>
-                  <th>Priority</th>
-                  <td>${issue.priority}</td>
-                </tr>
-                <tr>
-                  <th>Type</th>
-                  <td>${issue.type}</td>
-                </tr>
-                <tr>
-                  <th>Assignee</th>
-                  <td>${issue.assignee}</td>
-                </tr>
-                <tr>
-                  <th>State</th>
-                  <td>${issue.state}</td>
-                </tr>
-                <tr>
-                  <th>Fixed Date</th>
-                  <td>${issue.fixeddate}</td>
-                </tr>
-                <tr>
-                  <th>Fixed By</th>
-                  <td>${issue.fixedby}</td>
-                </tr>
-                <tr>
-                  <th>Verified By</th>
-                  <td>${issue.verifiedby}</td>
-                </tr>
-              </table>
-         </div>
-	</div>
+	 <!-- end row upper section issue description and table -->
 	</jsp:body>
 </t:dashboard_top>
