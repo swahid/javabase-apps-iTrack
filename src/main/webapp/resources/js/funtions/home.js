@@ -81,9 +81,14 @@ function addIssueTable(data) {
 				  case "Active":
 					  stateClass ="<span class='label label-success'>"+state+"</span>"
 				    break;
+				  case "Pending":
+					  stateClass ="<span class='label label-warning'>"+state+"</span>"
+					  break;
 				  case "close":
 					  stateClass ="<span class='label label-danger'>"+state+"</span>"
 					  break;
+				  default: stateClass = state
+				  break;
 				}
 			}else {
 				stateClass ="<span class='label label-danger'>"+"null"+"</span>"

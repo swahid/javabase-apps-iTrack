@@ -20,7 +20,42 @@
 		</div>
 	</div>
 	<div class="col-md-4">
-		<h6>Issue State : ${issue.state}</h6>
+		<div class="box-body table-responsive no-padding">
+              <table class="table table-hover">
+                <tr>
+                  <th>Project</th>
+                  <td>${issue.project.proejcttitle}</td>
+                </tr>
+                <tr>
+                  <th>Priority</th>
+                  <td>${issue.priority}</td>
+                </tr>
+                <tr>
+                  <th>Type</th>
+                  <td>${issue.type}</td>
+                </tr>
+                <tr>
+                  <th>Assignee</th>
+                  <td>${issue.assignee}</td>
+                </tr>
+                <tr>
+                  <th>State</th>
+                  <td>${issue.state}</td>
+                </tr>
+                <tr>
+                  <th>Fixed Date</th>
+                  <td>${issue.fixeddate}</td>
+                </tr>
+                <tr>
+                  <th>Fixed By</th>
+                  <td>${issue.fixedby}</td>
+                </tr>
+                <tr>
+                  <th>Verified By</th>
+                  <td>${issue.verifiedby}</td>
+                </tr>
+              </table>
+         </div>
 	</div>
 	</jsp:body>
 </t:dashboard_top>
