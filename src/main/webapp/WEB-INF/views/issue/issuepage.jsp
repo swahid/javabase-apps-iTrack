@@ -35,7 +35,25 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body box-success">
-              <p>${issue.issueDescription}</p>
+              <!-- comments box section start -->
+              
+              <form role="form">
+              <div class="box-body">
+                <div class="form-group">
+                  <textarea class="form-control" rows="4" placeholder="Enter Comments..."></textarea>
+                </div>
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-success">Enter Commnets</button>
+              </div>
+            </form>
+              <!-- comments box section end -->
+              
+			<!-- comments list section start-->
+			list commensts
+			<!-- comments list section end -->
             </div>
             <!-- /.box-body -->
           </div>
