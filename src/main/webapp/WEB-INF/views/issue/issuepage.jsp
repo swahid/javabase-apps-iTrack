@@ -1,8 +1,8 @@
 <%@ include file="/WEB-INF/tags/layout/includes.jsp"%>
 <!-- 
- @author  Saurav Wahid<swahidfx@gmail.com>
+ @author  	Saurav Wahid<swahidfx@gmail.com>
  @version	1.0.0
- @since	1.0.0
+ @since		1.0.0
  -->
  
  <t:dashboard_top>
@@ -27,11 +27,31 @@
           </div>
           <!-- /.box -->
         </div>
-		<!-- comments section -->
+		<!-- comments Row section -->
 		<div class="row-md-4" >
+		<!-- comments section Start -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title"> Comments</h3>
+              <h3 class="box-title"> <a href="#" target="_blank">Comments User Name</a></h3>
+              <p class="pull-right">Comments Date</p>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body box-success">
+              <div class="box-body">
+                <div class="form-group">
+                	<p> comments Description here</p>
+                </div>
+              </div>
+              <!-- /.box-body -->
+              <!-- comments section end -->
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+          <!-- comments box section start -->
+          <div class="box box-success">
+            <div class="box-header with-border">
+              <h3 class="box-title"> Comment Box</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body box-success">
@@ -49,17 +69,13 @@
                 <button type="submit" class="btn btn-success">Enter Commnets</button>
               </div>
             </form>
-              <!-- comments box section end -->
-              
-			<!-- comments list section start-->
-			list commensts
-			<!-- comments list section end -->
             </div>
             <!-- /.box-body -->
+              <!-- comments box section end -->
           </div>
           <!-- /.box -->
         </div>
-        <!-- comments section end-->
+        <!-- comments Row section end-->
 		</div>
 	<!-- spearate div ny column width for table -->
 		<div class="col-md-4">
