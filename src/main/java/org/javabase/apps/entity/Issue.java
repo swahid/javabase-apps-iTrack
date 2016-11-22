@@ -4,6 +4,7 @@ package org.javabase.apps.entity;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -27,101 +28,69 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name="issue",catalog="itrack")
-public class Issue  implements java.io.Serializable {
+public class Issue implements Serializable {
 
-	 private static final long serialVersionUID = 6277598856708113400L;
-	
-	 private Integer issueid;
-     private Project project;
-     private String issuetitle;
-     private String issueDescription;
-     private String priority;
-     private String type;
-     private String state;
-     private String assignee;
-     private Date createdate;
-     private String createby;
-     private Date fixeddate;
-     private String fixedby;
-     private String tester;
-     private String testdate;
-     private String verifiedby;
-     private Date verifieddate;
-     private String istested;
-     private String isverified;
-     private String ispending;
-     private String issubmit;
-     private Date submitdate;
-     private String submitby;
-     private String isfixed;
-     private Date submissiondate;
-     private String isclosed;
-     private String isexpried;
-     private Set<Comments> commentses = new HashSet<Comments>(0);
+	private static final long serialVersionUID = 6277598856708113400L;
 
-    public Issue() {
-    }
+	private Integer issueid;
+	private Project project;
+	private String issuetitle;
+	private String issueDescription;
+	private String priority;
+	private String type;
+	private String state;
+	private String assignee;
+	private Date createdate;
+	private String createby;
+	private Date fixeddate;
+	private String fixedby;
+	private String tester;
+	private Date testDate;
+	private String verifiedby;
+	private Date verifiedDate;
+	private String istested;
+	private String isverified;
+	private String ispending;
+	private String issubmit;
+	private Date submitDate;
+	private String submitby;
+	private String isfixed;
+	private Date submissionDate;
+	private String isclosed;
+	private String isexpried;
+	private Set<Comments> commentses = new HashSet<Comments>(0);
 
-    public Issue(Project project, String issuetitle, String issueDescription, String priority, String type, String state, String assignee, Date createdate, String createby, Date fixeddate, String fixedby, String tester, String testdate, String verifiedby, Date verifieddate, String istested, String isverified, String ispending, String issubmit, Date submitdate, String submitby, String isfixed, Date submissiondate, String isclosed, String isexpried, Set<Comments> commentses) {
-       this.project = project;
-       this.issuetitle = issuetitle;
-       this.issueDescription = issueDescription;
-       this.priority = priority;
-       this.type = type;
-       this.state = state;
-       this.assignee = assignee;
-       this.createdate = createdate;
-       this.createby = createby;
-       this.fixeddate = fixeddate;
-       this.fixedby = fixedby;
-       this.tester = tester;
-       this.testdate = testdate;
-       this.verifiedby = verifiedby;
-       this.verifieddate = verifieddate;
-       this.istested = istested;
-       this.isverified = isverified;
-       this.ispending = ispending;
-       this.issubmit = issubmit;
-       this.submitdate = submitdate;
-       this.submitby = submitby;
-       this.isfixed = isfixed;
-       this.submissiondate = submissiondate;
-       this.isclosed = isclosed;
-       this.isexpried = isexpried;
-       this.commentses = commentses;
-    }
-   
-    
-    @Id @GeneratedValue(strategy=IDENTITY)
-    @Column(name="issueid", unique=true, nullable=false)
-    public Integer getIssueid() {
-        return this.issueid;
-    }
-    
-    public void setIssueid(Integer issueid) {
-        this.issueid = issueid;
-    }
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "issueid", unique = true, nullable = false)
+	public Integer getIssueid() {
+		return this.issueid;
+	}
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="projectid")
-    public Project getProject() {
-        return this.project;
-    }
-    
-    public void setProject(Project project) {
-        this.project = project;
-    }
+	public void setIssueid(Integer issueid) {
+		this.issueid = issueid;
+	}
 
-    @Column(name="issuetitle", length=45)
-    public String getIssuetitle() {
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "projectid")
+	public Project getProject() {
+		return this.project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
+	}
+
+	@Column(name = "issuetitle", length = 45)
+	public String getIssuetitle() {
 		return issuetitle;
 	}
 
 	public void setIssuetitle(String issuetitle) {
 		this.issuetitle = issuetitle;
 	}
-	
-	@Column(name="issueDescription")
+
+	@Column(name = "issueDescription")
 	public String getIssueDescription() {
 		return issueDescription;
 	}
@@ -130,236 +99,218 @@ public class Issue  implements java.io.Serializable {
 		this.issueDescription = issueDescription;
 	}
 
-	@Column(name="priority", length=45)
-    public String getPriority() {
-        return this.priority;
-    }
-    
-    public void setPriority(String priority) {
-        this.priority = priority;
-    }
+	@Column(name = "priority", length = 45)
+	public String getPriority() {
+		return this.priority;
+	}
 
-    
-    @Column(name="type", length=45)
-    public String getType() {
-        return this.type;
-    }
-    
-    public void setType(String type) {
-        this.type = type;
-    }
+	public void setPriority(String priority) {
+		this.priority = priority;
+	}
 
-    
-    @Column(name="state", length=45)
-    public String getState() {
-        return this.state;
-    }
-    
-    public void setState(String state) {
-        this.state = state;
-    }
+	@Column(name = "type", length = 45)
+	public String getType() {
+		return this.type;
+	}
 
-    
-    @Column(name="assignee", length=45)
-    public String getAssignee() {
-        return this.assignee;
-    }
-    
-    public void setAssignee(String assignee) {
-        this.assignee = assignee;
-    }
+	public void setType(String type) {
+		this.type = type;
+	}
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="createdate", length=19)
-    public Date getCreatedate() {
-        return this.createdate;
-    }
-    
-    public void setCreatedate(Date createdate) {
-        this.createdate = createdate;
-    }
+	@Column(name = "state", length = 45)
+	public String getState() {
+		return this.state;
+	}
 
-    
-    @Column(name="createby", length=45)
-    public String getCreateby() {
-        return this.createby;
-    }
-    
-    public void setCreateby(String createby) {
-        this.createby = createby;
-    }
+	public void setState(String state) {
+		this.state = state;
+	}
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="fixeddate", length=19)
-    public Date getFixeddate() {
-        return this.fixeddate;
-    }
-    
-    public void setFixeddate(Date fixeddate) {
-        this.fixeddate = fixeddate;
-    }
+	@Column(name = "assignee", length = 45)
+	public String getAssignee() {
+		return this.assignee;
+	}
 
-    
-    @Column(name="fixedby", length=45)
-    public String getFixedby() {
-        return this.fixedby;
-    }
-    
-    public void setFixedby(String fixedby) {
-        this.fixedby = fixedby;
-    }
+	public void setAssignee(String assignee) {
+		this.assignee = assignee;
+	}
 
-    
-    @Column(name="tester", length=45)
-    public String getTester() {
-        return this.tester;
-    }
-    
-    public void setTester(String tester) {
-        this.tester = tester;
-    }
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "createdate", length = 19)
+	public Date getCreatedate() {
+		return this.createdate;
+	}
 
-    
-    @Column(name="testdate", length=45)
-    public String getTestdate() {
-        return this.testdate;
-    }
-    
-    public void setTestdate(String testdate) {
-        this.testdate = testdate;
-    }
+	public void setCreatedate(Date createdate) {
+		this.createdate = createdate;
+	}
 
-    
-    @Column(name="verifiedby", length=45)
-    public String getVerifiedby() {
-        return this.verifiedby;
-    }
-    
-    public void setVerifiedby(String verifiedby) {
-        this.verifiedby = verifiedby;
-    }
+	@Column(name = "createby", length = 45)
+	public String getCreateby() {
+		return this.createby;
+	}
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="verifieddate", length=19)
-    public Date getVerifieddate() {
-        return this.verifieddate;
-    }
-    
-    public void setVerifieddate(Date verifieddate) {
-        this.verifieddate = verifieddate;
-    }
+	public void setCreateby(String createby) {
+		this.createby = createby;
+	}
 
-    
-    @Column(name="istested", length=1)
-    public String getIstested() {
-        return this.istested;
-    }
-    
-    public void setIstested(String istested) {
-        this.istested = istested;
-    }
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "fixeddate", length = 19)
+	public Date getFixeddate() {
+		return this.fixeddate;
+	}
 
-    
-    @Column(name="isverified", length=1)
-    public String getIsverified() {
-        return this.isverified;
-    }
-    
-    public void setIsverified(String isverified) {
-        this.isverified = isverified;
-    }
+	public void setFixeddate(Date fixeddate) {
+		this.fixeddate = fixeddate;
+	}
 
-    
-    @Column(name="ispending", length=1)
-    public String getIspending() {
-        return this.ispending;
-    }
-    
-    public void setIspending(String ispending) {
-        this.ispending = ispending;
-    }
+	@Column(name = "fixedby", length = 45)
+	public String getFixedby() {
+		return this.fixedby;
+	}
 
-    
-    @Column(name="issubmit", length=1)
-    public String getIssubmit() {
-        return this.issubmit;
-    }
-    
-    public void setIssubmit(String issubmit) {
-        this.issubmit = issubmit;
-    }
+	public void setFixedby(String fixedby) {
+		this.fixedby = fixedby;
+	}
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="submitdate", length=19)
-    public Date getSubmitdate() {
-        return this.submitdate;
-    }
-    
-    public void setSubmitdate(Date submitdate) {
-        this.submitdate = submitdate;
-    }
+	@Column(name = "tester", length = 45)
+	public String getTester() {
+		return this.tester;
+	}
 
-    
-    @Column(name="submitby", length=45)
-    public String getSubmitby() {
-        return this.submitby;
-    }
-    
-    public void setSubmitby(String submitby) {
-        this.submitby = submitby;
-    }
+	public void setTester(String tester) {
+		this.tester = tester;
+	}
 
-    
-    @Column(name="isfixed", length=1)
-    public String getIsfixed() {
-        return this.isfixed;
-    }
-    
-    public void setIsfixed(String isfixed) {
-        this.isfixed = isfixed;
-    }
+	@Column(name = "verifiedby", length = 45)
+	public String getVerifiedby() {
+		return this.verifiedby;
+	}
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="submissiondate", length=19)
-    public Date getSubmissiondate() {
-        return this.submissiondate;
-    }
-    
-    public void setSubmissiondate(Date submissiondate) {
-        this.submissiondate = submissiondate;
-    }
+	public void setVerifiedby(String verifiedby) {
+		this.verifiedby = verifiedby;
+	}
 
-    
-    @Column(name="isclosed", length=1)
-    public String getIsclosed() {
-        return this.isclosed;
-    }
-    
-    public void setIsclosed(String isclosed) {
-        this.isclosed = isclosed;
-    }
+	@Column(name = "istested", length = 1)
+	public String getIstested() {
+		return this.istested;
+	}
 
-    
-    @Column(name="isexpried", length=1)
-    public String getIsexpried() {
-        return this.isexpried;
-    }
-    
-    public void setIsexpried(String isexpried) {
-        this.isexpried = isexpried;
-    }
+	public void setIstested(String istested) {
+		this.istested = istested;
+	}
 
-@OneToMany(fetch=FetchType.LAZY, mappedBy="issue")
-    public Set<Comments> getCommentses() {
-        return this.commentses;
-    }
-    
-    public void setCommentses(Set<Comments> commentses) {
-        this.commentses = commentses;
-    }
+	@Column(name = "isverified", length = 1)
+	public String getIsverified() {
+		return this.isverified;
+	}
 
+	public void setIsverified(String isverified) {
+		this.isverified = isverified;
+	}
 
+	@Column(name = "ispending", length = 1)
+	public String getIspending() {
+		return this.ispending;
+	}
 
+	public void setIspending(String ispending) {
+		this.ispending = ispending;
+	}
+
+	@Column(name = "issubmit", length = 1)
+	public String getIssubmit() {
+		return this.issubmit;
+	}
+
+	public void setIssubmit(String issubmit) {
+		this.issubmit = issubmit;
+	}
+
+	@Column(name = "submitby", length = 45)
+	public String getSubmitby() {
+		return this.submitby;
+	}
+
+	public void setSubmitby(String submitby) {
+		this.submitby = submitby;
+	}
+
+	@Column(name = "isfixed", length = 1)
+	public String getIsfixed() {
+		return this.isfixed;
+	}
+
+	public void setIsfixed(String isfixed) {
+		this.isfixed = isfixed;
+	}
+
+	@Column(name = "isclosed", length = 1)
+	public String getIsclosed() {
+		return this.isclosed;
+	}
+
+	public void setIsclosed(String isclosed) {
+		this.isclosed = isclosed;
+	}
+
+	@Column(name = "isexpried", length = 1)
+	public String getIsexpried() {
+		return this.isexpried;
+	}
+
+	public void setIsexpried(String isexpried) {
+		this.isexpried = isexpried;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "issue")
+	public Set<Comments> getCommentses() {
+		return this.commentses;
+	}
+
+	public void setCommentses(Set<Comments> commentses) {
+		this.commentses = commentses;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "testdate", length = 19)
+	public Date getTestDate() {
+		return testDate;
+	}
+
+	public void setTestDate(Date testDate) {
+		this.testDate = testDate;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "verifieddate")
+	public Date getVerifiedDate() {
+		return verifiedDate;
+	}
+
+	public void setVerifiedDate(Date verifiedDate) {
+		this.verifiedDate = verifiedDate;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "submitdate")
+	public Date getSubmitDate() {
+		return submitDate;
+	}
+
+	public void setSubmitDate(Date submitDate) {
+		this.submitDate = submitDate;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "submissiondate")
+	public Date getSubmissionDate() {
+		return submissionDate;
+	}
+
+	public void setSubmissionDate(Date submissionDate) {
+		this.submissionDate = submissionDate;
+	}
 
 }
 

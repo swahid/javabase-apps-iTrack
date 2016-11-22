@@ -4,6 +4,7 @@ package org.javabase.apps.entity;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,59 +23,42 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="role",catalog="itrack")
-public class Role  implements java.io.Serializable {
+public class Role implements Serializable {
 
 	private static final long serialVersionUID = 688998598048223186L;
-	
+
 	private Integer roleid;
-    private String rolename;
-    private Set<User> users = new HashSet<User>(0);
+	private String rolename;
+	private Set<User> users = new HashSet<User>(0);
 
-    public Role() {
-    }
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "roleid", unique = true, nullable = false)
+	public Integer getRoleid() {
+		return this.roleid;
+	}
 
-	
-    public Role(String rolename) {
-        this.rolename = rolename;
-    }
-    public Role(String rolename, Set<User> users) {
-       this.rolename = rolename;
-       this.users = users;
-    }
-   
-     @Id @GeneratedValue(strategy=IDENTITY)
+	public void setRoleid(Integer roleid) {
+		this.roleid = roleid;
+	}
 
-    
-    @Column(name="roleid", unique=true, nullable=false)
-    public Integer getRoleid() {
-        return this.roleid;
-    }
-    
-    public void setRoleid(Integer roleid) {
-        this.roleid = roleid;
-    }
+	@Column(name = "rolename", nullable = false, length = 45)
+	public String getRolename() {
+		return this.rolename;
+	}
 
-    
-    @Column(name="rolename", nullable=false, length=45)
-    public String getRolename() {
-        return this.rolename;
-    }
-    
-    public void setRolename(String rolename) {
-        this.rolename = rolename;
-    }
+	public void setRolename(String rolename) {
+		this.rolename = rolename;
+	}
 
-@OneToMany(fetch=FetchType.LAZY, mappedBy="role")
-    public Set<User> getUsers() {
-        return this.users;
-    }
-    
-    public void setUsers(Set<User> users) {
-        this.users = users;
-    }
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "role")
+	public Set<User> getUsers() {
+		return this.users;
+	}
 
-
-
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
 
 }
 

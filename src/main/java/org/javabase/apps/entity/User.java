@@ -4,6 +4,7 @@ package org.javabase.apps.entity;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -24,7 +25,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name="user",catalog="itrack")
-public class User  implements java.io.Serializable {
+public class User  implements Serializable{
 
 	 private static final long serialVersionUID = 7571571444206304140L;
 	
@@ -42,165 +43,127 @@ public class User  implements java.io.Serializable {
      private Date regdate;
      private String username;
 
-    public User() {
-    }
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "userid", unique = true, nullable = false)
+	public Integer getUserid() {
+		return this.userid;
+	}
 
-	
-    public User(Role role, String email, String password, String username) {
-        this.role = role;
-        this.email = email;
-        this.password = password;
-        this.username = username;
-    }
-    public User(Role role, String email, Date expDate, String firstName, String isactive, String isnonexpired, String isnonlocked, String lastName, String password, String phone, Date regdate, String username) {
-       this.role = role;
-       this.email = email;
-       this.expDate = expDate;
-       this.firstName = firstName;
-       this.isactive = isactive;
-       this.isnonexpired = isnonexpired;
-       this.isnonlocked = isnonlocked;
-       this.lastName = lastName;
-       this.password = password;
-       this.phone = phone;
-       this.regdate = regdate;
-       this.username = username;
-    }
-   
-     @Id @GeneratedValue(strategy=IDENTITY)
+	public void setUserid(Integer userid) {
+		this.userid = userid;
+	}
 
-    
-    @Column(name="userid", unique=true, nullable=false)
-    public Integer getUserid() {
-        return this.userid;
-    }
-    
-    public void setUserid(Integer userid) {
-        this.userid = userid;
-    }
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "roleid", nullable = false)
+	public Role getRole() {
+		return this.role;
+	}
 
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="roleid", nullable=false)
-    public Role getRole() {
-        return this.role;
-    }
-    
-    public void setRole(Role role) {
-        this.role = role;
-    }
+	public void setRole(Role role) {
+		this.role = role;
+	}
 
-    
-    @Column(name="email", nullable=false, length=45)
-    public String getEmail() {
-        return this.email;
-    }
-    
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	@Column(name = "email", nullable = false, length = 45)
+	public String getEmail() {
+		return this.email;
+	}
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="expDate", length=19)
-    public Date getExpDate() {
-        return this.expDate;
-    }
-    
-    public void setExpDate(Date expDate) {
-        this.expDate = expDate;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    
-    @Column(name="firstName", length=45)
-    public String getFirstName() {
-        return this.firstName;
-    }
-    
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "expDate", length = 19)
+	public Date getExpDate() {
+		return this.expDate;
+	}
 
-    
-    @Column(name="isactive")
-    public String getIsactive() {
-        return this.isactive;
-    }
-    
-    public void setIsactive(String isactive) {
-        this.isactive = isactive;
-    }
+	public void setExpDate(Date expDate) {
+		this.expDate = expDate;
+	}
 
-    
-    @Column(name="isnonexpired")
-    public String getIsnonexpired() {
-        return this.isnonexpired;
-    }
-    
-    public void setIsnonexpired(String isnonexpired) {
-        this.isnonexpired = isnonexpired;
-    }
+	@Column(name = "firstName", length = 45)
+	public String getFirstName() {
+		return this.firstName;
+	}
 
-    
-    @Column(name="isnonlocked")
-    public String getIsnonlocked() {
-        return this.isnonlocked;
-    }
-    
-    public void setIsnonlocked(String isnonlocked) {
-        this.isnonlocked = isnonlocked;
-    }
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
-    
-    @Column(name="lastName", length=45)
-    public String getLastName() {
-        return this.lastName;
-    }
-    
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+	@Column(name = "isactive")
+	public String getIsactive() {
+		return this.isactive;
+	}
 
-    
-    @Column(name="password", nullable=false, length=45)
-    public String getPassword() {
-        return this.password;
-    }
-    
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public void setIsactive(String isactive) {
+		this.isactive = isactive;
+	}
 
-    
-    @Column(name="phone", length=45)
-    public String getPhone() {
-        return this.phone;
-    }
-    
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+	@Column(name = "isnonexpired")
+	public String getIsnonexpired() {
+		return this.isnonexpired;
+	}
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="regdate", length=19)
-    public Date getRegdate() {
-        return this.regdate;
-    }
-    
-    public void setRegdate(Date regdate) {
-        this.regdate = regdate;
-    }
+	public void setIsnonexpired(String isnonexpired) {
+		this.isnonexpired = isnonexpired;
+	}
 
-    
-    @Column(name="username", nullable=false, length=45)
-    public String getUsername() {
-        return this.username;
-    }
-    
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	@Column(name = "isnonlocked")
+	public String getIsnonlocked() {
+		return this.isnonlocked;
+	}
 
+	public void setIsnonlocked(String isnonlocked) {
+		this.isnonlocked = isnonlocked;
+	}
 
+	@Column(name = "lastName", length = 45)
+	public String getLastName() {
+		return this.lastName;
+	}
 
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	@Column(name = "password", nullable = false, length = 45)
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	@Column(name = "phone", length = 45)
+	public String getPhone() {
+		return this.phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "regdate", length = 19)
+	public Date getRegdate() {
+		return this.regdate;
+	}
+
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
+	}
+
+	@Column(name = "username", nullable = false, length = 45)
+	public String getUsername() {
+		return this.username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
 }
 
