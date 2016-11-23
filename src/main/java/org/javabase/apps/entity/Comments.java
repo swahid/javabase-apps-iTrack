@@ -29,7 +29,7 @@ public class Comments implements Serializable {
 
 	private Integer commentid;
 	private Issue issue;
-	private Integer userid;
+	private Integer userId;
 	private String commentor;
 	private String title;
 	private String description;
@@ -56,27 +56,28 @@ public class Comments implements Serializable {
 		this.issue = issue;
 	}
 
-	@Column(name = "userid")
-	public Integer getUserid() {
-		return this.userid;
-	}
-
-	public void setUserid(Integer userid) {
-		this.userid = userid;
-	}
-
 	@Column(name = "commentor", length = 45)
 	public String getCommentor() {
 		return this.commentor;
 	}
 
+
 	public void setCommentor(String commentor) {
 		this.commentor = commentor;
 	}
-
+	
 	@Column(name = "title", length = 45)
 	public String getTitle() {
 		return this.title;
+	}
+
+	@Column(name = "userid")
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
 	public void setTitle(String title) {

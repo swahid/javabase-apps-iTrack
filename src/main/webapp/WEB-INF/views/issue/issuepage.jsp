@@ -7,6 +7,7 @@
  
  <t:dashboard_top>
 	<jsp:attribute name="header">
+		<script src="<c:url value='/resources/js/funtions/issuePage.js' />"></script>
 	</jsp:attribute>
 	<jsp:body>
 	 <div class="row">
@@ -27,13 +28,18 @@
           </div>
           <!-- /.box -->
         </div>
+        
+        
+        
+        
+        
+        
 		<!-- comments Row section -->
 		<div class="row-md-4" >
 		<!-- comments section Start -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title"> <a href="#" target="_blank">Comments User Name</a></h3>
-              <p class="pull-right">Comments Date</p>
+              <h3 class="box-title"> No. of comments</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body box-success">
@@ -41,26 +47,42 @@
                 <div class="form-group">
                 	<p> comments Description here</p>
                 </div>
+                <div class="box-footer">
+                	<div class="pull-right">
+		                <p><a href="#" target="_blank">Comments User Name</a><br>
+		                	<span>Comments Date time</span>
+		                </p>
+		                
+                	</div>
               </div>
-              <!-- /.box-body -->
+              </div>
               <!-- comments section end -->
             </div>
             <!-- /.box-body -->
           </div>
-          <!-- /.box -->
+          <!-- comments list end  -->
+          
+          
           <!-- comments box section start -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title"> Comment Box</h3>
+              <h3 class="box-title"> Enter Comments</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body box-success">
               <!-- comments box section start -->
               
-              <form role="form">
+              <form id="commentBox" role="form">
               <div class="box-body">
                 <div class="form-group">
-                  <textarea class="form-control" rows="4" placeholder="Enter Comments..."></textarea>
+                  <textarea class="form-control" id="commentDescription" rows="4" placeholder="Enter Comments..."></textarea>
+                  <input type="hidden" id="csrfToken" value="${_csrf.token}"/>
+				  <input type="hidden" id="csrfHeader" value="${_csrf.headerName}"/>
+				  <input type="hidden" id="commentor" value="${user.username}"/>
+				  <input type="hidden" id="userId" value="${user.userid}"/>
+				  <input type="hidden" id="issueId" value="${issue.issueid}"/>
+				  <input type="hidden" id="issue" value="${issue}"/>
+				  <input type="hidden" id="CommentsTitle" value="${issue.issuetitle}"/>
                 </div>
               </div>
               <!-- /.box-body -->
@@ -77,6 +99,10 @@
         </div>
         <!-- comments Row section end-->
 		</div>
+		
+		
+		
+		
 	<!-- spearate div ny column width for table -->
 		<div class="col-md-4">
 	          <div class="box box-success">
