@@ -5,12 +5,11 @@ $(document).ready(function($) {
 		var data 	= {},
 			url,token,header, issueId;
 		
-		data["commentor"]	= $("#commentor").val();
-		data["userId"]		= $("#userId").val();
-		data["title"]   	= $("#CommentsTitle").val();
-		data["description"] = $("#commentDescription").val();
-		data["issueid"] 	= $("#issueId").val();
-		data["issuetitle"]  = $("#CommentsTitle").val();
+		data["commentsTitle"]   	= $("#CommentsTitle").val();
+		data["commentsUser"]		= $("#commentor").val();
+		data["issueId"] 			= $("#issueId").val();
+		data["userId"]				= $("#userId").val();
+		data["commentsDescription"] = $("#commentDescription").val();
 		
 		
 		issueId = $("#issueId").val();
@@ -33,18 +32,17 @@ $(document).ready(function($) {
 					data	= resonse.data,
 					message	= resonse.message;
 				console.log(data);
-				alert(message);
 			},
 			error 	 : function(e) {
 				console.log("ERROR: ", e);
-				alert("unable to save");
 			}
 		});
 	});
-	/*$(window).load(function(event) {
+	$(window).load(function(event) {
 		event.preventDefault();
 		var url = "issue/load";
-		$.ajax({
+		console.log(commentList);
+		/*$.ajax({
 			type 	 : "get",
 			url      : url,
 			success  : function(resonse) {
@@ -55,6 +53,6 @@ $(document).ready(function($) {
 			error 	 : function(e) {
 				console.log("ERROR: ", e);
 			}
-		});
-	});*/
+		});*/
+	});
 });

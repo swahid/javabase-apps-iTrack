@@ -39,4 +39,9 @@ public class CommentsMapperImpl implements CommentsMapper{
 		}
 	}
 
+	@Override
+	public List<Comments> getCommnetsByIssueId(int IssueId) {
+		return (List<Comments>) session.getCurrentSession().get(Comments.class, IssueId);
+	}
+
 }

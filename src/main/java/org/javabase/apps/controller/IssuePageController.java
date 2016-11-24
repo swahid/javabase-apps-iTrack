@@ -23,11 +23,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class IssuePageController {
 	
 	@Autowired
-	IssueService issueservice;
+	private IssueService issueservice;
 
 	@RequestMapping(value="{issueId}", method=RequestMethod.GET)
 	public String loadIssue(@PathVariable Integer issueId, HttpSession session){
 		Issue issue = issueservice.getIssueById(issueId);
+		
 		session.setAttribute("issue", issue);
 	return "issue/issuepage";
 	}

@@ -9,11 +9,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -27,78 +24,83 @@ public class Comments implements Serializable {
 
 	private static final long serialVersionUID = 7178622376109062175L;
 
-	private Integer commentid;
-	private Issue issue;
-	private Integer userId;
-	private String commentor;
-	private String title;
-	private String description;
-	private Date commentdate;
-
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-	@Column(name = "commentid", unique = true, nullable = false)
-	public Integer getCommentid() {
-		return this.commentid;
-	}
-
-	public void setCommentid(Integer commentid) {
-		this.commentid = commentid;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "issueid")
-	public Issue getIssue() {
-		return this.issue;
-	}
-
-	public void setIssue(Issue issue) {
-		this.issue = issue;
-	}
-
-	@Column(name = "commentor", length = 45)
-	public String getCommentor() {
-		return this.commentor;
-	}
-
-
-	public void setCommentor(String commentor) {
-		this.commentor = commentor;
-	}
+	@Column(name = "commentsid", unique = true, nullable = false)
+	private Integer commentsId;
 	
-	@Column(name = "title", length = 45)
-	public String getTitle() {
-		return this.title;
+	@Column(name = "commentsTitle", length = 45)
+	private String commentsTitle;
+	
+	@Column(name = "commentsDescription", length = 500)
+	private String commentsDescription;
+	
+	@Column(name = "commentsUser", length = 45)
+	private String commentsUser;
+	
+	@Column(name = "issueId", length = 20)
+	private String issueId;
+	
+	@Column(name = "userId", length = 20)
+	private String userId;
+	
+	@Column(name = "commentsDate")
+	private Date commentsDate;
+
+	public Integer getCommentsId() {
+		return commentsId;
 	}
 
-	@Column(name = "userid")
-	public Integer getUserId() {
+	public void setCommentsId(Integer commentsId) {
+		this.commentsId = commentsId;
+	}
+
+	public String getCommentsTitle() {
+		return commentsTitle;
+	}
+
+	public void setCommentsTitle(String commentsTitle) {
+		this.commentsTitle = commentsTitle;
+	}
+
+	public String getCommentsDescription() {
+		return commentsDescription;
+	}
+
+	public void setCommentsDescription(String commentsDescription) {
+		this.commentsDescription = commentsDescription;
+	}
+
+	public String getCommentsUser() {
+		return commentsUser;
+	}
+
+	public void setCommentsUser(String commentsUser) {
+		this.commentsUser = commentsUser;
+	}
+
+	public String getIssueId() {
+		return issueId;
+	}
+
+	public void setIssueId(String issueId) {
+		this.issueId = issueId;
+	}
+
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(Integer userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public Date getCommentsDate() {
+		return commentsDate;
 	}
 
-	@Column(name = "description")
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public Date getCommentdate() {
-		return commentdate;
-	}
-
-	public void setCommentdate(Date commentdate) {
-		this.commentdate = commentdate;
+	public void setCommentsDate(Date commentsDate) {
+		this.commentsDate = commentsDate;
 	}
 
 }

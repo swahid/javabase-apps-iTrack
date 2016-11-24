@@ -42,7 +42,7 @@
               <h3 class="box-title"> No. of comments</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body box-success">
+            <div class="box-body box-success" id="commentList">
               <div class="box-body">
                 <div class="form-group">
                 	<p> comments Description here</p>

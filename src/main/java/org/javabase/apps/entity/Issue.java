@@ -6,8 +6,6 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +14,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -58,7 +55,6 @@ public class Issue implements Serializable {
 	private Date submissionDate;
 	private String isclosed;
 	private String isexpried;
-	private Set<Comments> commentses = new HashSet<Comments>(0);
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
@@ -261,15 +257,6 @@ public class Issue implements Serializable {
 
 	public void setIsexpried(String isexpried) {
 		this.isexpried = isexpried;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "issue")
-	public Set<Comments> getCommentses() {
-		return this.commentses;
-	}
-
-	public void setCommentses(Set<Comments> commentses) {
-		this.commentses = commentses;
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)

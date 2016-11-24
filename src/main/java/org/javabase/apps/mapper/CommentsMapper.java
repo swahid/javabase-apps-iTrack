@@ -15,6 +15,7 @@ import org.javabase.apps.entity.Comments;
 public interface CommentsMapper {
 	
 	public List<Comments> selectAll();
+	public List<Comments> getCommnetsByIssueId(int IssueId);
 	public boolean insert(Comments comments);
 
 }

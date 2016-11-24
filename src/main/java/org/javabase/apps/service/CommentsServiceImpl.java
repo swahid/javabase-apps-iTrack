@@ -34,4 +34,10 @@ public class CommentsServiceImpl implements CommentsService{
 		return commentsmapper.insert(comments);
 	}
 
+	@Override
+	@Transactional(readOnly=true)
+	public List<Comments> getCommnetsByIssueId(int IssueId) {
+		return commentsmapper.getCommnetsByIssueId(IssueId);
+	}
+
 }
