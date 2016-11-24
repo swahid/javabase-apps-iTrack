@@ -1802,6 +1802,10 @@ a:focus {
   padding: 10px;
   background-color: #ffffff;
 }
+
+.commetns{
+	border-bottom: 1px solid #00a65a;
+}
 .chart-legend {
   margin: 10px 0;
 }

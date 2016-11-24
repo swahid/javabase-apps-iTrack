@@ -49,6 +49,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    		<!-- bootstrap wysihtml5 - text editor -->
+  		<link rel="stylesheet" href="<c:url value='/resources/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css' />">
+  		<!-- Bootstrap WYSIHTML5 -->
+		<script src="<c:url value='/resources/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js' />"></script>
     <jsp:invoke fragment="header"/>
   </head>
   <!--

@@ -1,5 +1,8 @@
 
+    
 $(document).ready(function($) {
+	//bootstrap WYSIHTML5 - text editor
+    $(".textarea").wysihtml5();
 	$("#commentBox").submit(function(event) {
 		event.preventDefault();
 		var data 	= {},
@@ -40,19 +43,54 @@ $(document).ready(function($) {
 	});
 	$(window).load(function(event) {
 		event.preventDefault();
-		var url = "issue/load";
-		console.log(commentList);
-		/*$.ajax({
+		var value = $("#issueId").val();
+		var url = value+"/comments";
+		
+		$.ajax({
 			type 	 : "get",
 			url      : url,
 			success  : function(resonse) {
-				var message = "registration Sucess",
-				    data	= resonse.data;
-				addIssueTable(data);
+				var data	= resonse.data;
+				console.log(data);
+				
+				fetchComments(data);
+								
 			},
 			error 	 : function(e) {
 				console.log("ERROR: ", e);
 			}
-		});*/
+		});
 	});
+	
+	/*
+	 * Following function for fetch comments and append to comments list
+	 */
+	
+	function fetchComments(data) {
+		var n	= data.length,
+			i=0;
+		$("#commentSize").text(data.length +" Comments");
+//		$('#commentList div:gt(0)').remove();
+//		jQuery("#commentList").show();
+		while(n > 0){
+			var date = moment(data[i].commentsDate).format("DD MMM YYYY h:m:s");
+//			jQuery("#commentList").append(jQuery("#commentList").children().first().clone());
+			jQuery("#commentList").after(
+				'<div class="box-body">'+
+	            '<div class="form-group">'+
+	        	data[i].commentsDescription+
+	        	'</div>'+
+	        	'<div class="box-footer commetns">'+
+	        	'<div class="pull-right">'+
+	                '<p><a href="#" target="_blank">'+data[i].commentsUser+'</a><br>'+
+	                	'<span>'+date+'</span>'+
+	                '</p>'+
+	        	'</div>'+
+			    '</div>'+
+			    '</div>'
+		    );
+			n -= 1;
+			i += 1;
+		}
+	}
 });

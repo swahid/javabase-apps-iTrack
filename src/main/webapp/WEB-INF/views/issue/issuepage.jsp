@@ -17,8 +17,12 @@
 		<div class="row-md-8" >
           <div class="box box-success" style="height: 400px; width: 100%">
             <div class="box-header with-border">
-              <h3 class="box-title"> ${issue.issueid} ${issue.issuetitle}</h3><br/>
-				<span>issue created by ${issue.createby} ${issue.createdate}</span>
+              <h3 class="box-title">${issue.issuetitle}<br/>
+				<small>created ${issue.createby} ${issue.createdate}</small>
+              </h3>
+              <div class="pull-right">
+              	<small>Reporter ${issue.assignee}</small>
+              </div>
             </div>
             <!-- /.box-header -->
             <div class="box-body box-success">
@@ -39,25 +43,26 @@
 		<!-- comments section Start -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title"> No. of comments</h3>
+              <h3 class="box-title" id="commentSize"> 0 Comments</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body box-success" id="commentList">
-              <div class="box-body">
+            	<!-- dynamicly create Comments Section -->
+            
+              <!-- <div class="box-body">
                 <div class="form-group">
-                	<p> comments Description here</p>
+                	<p id="commentBody"> </p>
                 </div>
-                <div class="box-footer">
+                <div class="box-footer commetns">
                 	<div class="pull-right">
-		                <p><a href="#" target="_blank">Comments User Name</a><br>
-		                	<span>Comments Date time</span>
+		                <p><a href="#" target="_blank" id="commentUsername"></a><br>
+		                	<span class="commetsDate"></span>
 		                </p>
-		                
                 	</div>
               </div>
-              </div>
-              <!-- comments section end -->
+              </div> -->
             </div>
+              <!-- comments section end -->
             <!-- /.box-body -->
           </div>
           <!-- comments list end  -->
@@ -75,7 +80,7 @@
               <form id="commentBox" role="form">
               <div class="box-body">
                 <div class="form-group">
-                  <textarea class="form-control" id="commentDescription" rows="4" placeholder="Enter Comments..."></textarea>
+                  <textarea class="textarea" id="commentDescription" placeholder="Enter Comments..." placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                   <input type="hidden" id="csrfToken" value="${_csrf.token}"/>
 				  <input type="hidden" id="csrfHeader" value="${_csrf.headerName}"/>
 				  <input type="hidden" id="commentor" value="${user.username}"/>
