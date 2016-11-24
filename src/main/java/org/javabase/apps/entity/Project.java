@@ -32,144 +32,209 @@ public class Project implements Serializable {
 
 	private static final long serialVersionUID = -8490140357995462757L;
 
-	private Integer projectid;
-	private Team team;
-	private String proejcttitle;
-	private String projectdescription;
-	private String projectcreator;
-	private Date startdate;
-	private Date submitdate;
-	private Date closedate;
-	private Date reviewdate;
-	private Date aprovaldate;
-	private Date testingdate;
-	private Integer buildversion;
-	private Set<Issue> issues = new HashSet<Issue>(0);
-
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "projectid", unique = true, nullable = false)
-	public Integer getProjectid() {
-		return this.projectid;
-	}
-
-	public void setProjectid(Integer projectid) {
-		this.projectid = projectid;
-	}
-
+	private Integer projectId;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "teamid")
+	private Team team;
+	
+	@Column(name = "proejcttitle", length = 45)
+	private String proejctTitle;
+	
+	@Column(name = "projectdescription")
+	private String projectDescription;
+	
+	@Column(name = "projectcreator", length = 45)
+	private String projectCreator;
+	
+	@Column(name = "buildversion", length = 10)
+	private String buildversion;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "project")
+	private Set<Issue> issues = new HashSet<Issue>(0);
+	
+	@Column(name = "projectkey", length = 45)
+	private String projectKey;
+	
+	@Column(name = "projectcategory", length = 45)
+	private String projectCategory;
+	
+	@Column(name = "projectlead", length = 45)
+	private String projectLead;
+	
+	@Column(name = "projectleadid")
+	private Integer projectLeadId;
+	
+	@Column(name = "projecttype", length = 45)
+	private String projectType;
+	
+	@Column(name = "projecturl", length = 45)
+	private String projectUrl;
+	
+	@Column(name = "projectclosed", length = 10)
+	private String projectClosed;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "startdate")
+	private Date startDate;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "submitdate")
+	private Date submitDate;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "closedate")
+	private Date closeDate;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "expecteddate")
+	private Date expectedDate;
+
+	public Integer getProjectId() {
+		return projectId;
+	}
+
+	public void setProjectId(Integer projectId) {
+		this.projectId = projectId;
+	}
+
 	public Team getTeam() {
-		return this.team;
+		return team;
 	}
 
 	public void setTeam(Team team) {
 		this.team = team;
 	}
 
-	@Column(name = "proejcttitle", length = 45)
-	public String getProejcttitle() {
-		return this.proejcttitle;
+	public String getProejctTitle() {
+		return proejctTitle;
 	}
 
-	public void setProejcttitle(String proejcttitle) {
-		this.proejcttitle = proejcttitle;
+	public void setProejctTitle(String proejctTitle) {
+		this.proejctTitle = proejctTitle;
 	}
 
-	@Column(name = "projectdescription")
-	public String getProjectdescription() {
-		return this.projectdescription;
+	public String getProjectDescription() {
+		return projectDescription;
 	}
 
-	public void setProjectdescription(String projectdescription) {
-		this.projectdescription = projectdescription;
+	public void setProjectDescription(String projectDescription) {
+		this.projectDescription = projectDescription;
 	}
 
-	@Column(name = "projectcreator", length = 45)
-	public String getProjectcreator() {
-		return this.projectcreator;
+	public String getProjectCreator() {
+		return projectCreator;
 	}
 
-	public void setProjectcreator(String projectcreator) {
-		this.projectcreator = projectcreator;
+	public void setProjectCreator(String projectCreator) {
+		this.projectCreator = projectCreator;
 	}
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "startdate", length = 19)
-	public Date getStartdate() {
-		return this.startdate;
+	public String getBuildversion() {
+		return buildversion;
 	}
 
-	public void setStartdate(Date startdate) {
-		this.startdate = startdate;
-	}
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "submitdate", length = 19)
-	public Date getSubmitdate() {
-		return this.submitdate;
-	}
-
-	public void setSubmitdate(Date submitdate) {
-		this.submitdate = submitdate;
-	}
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "closedate", length = 19)
-	public Date getClosedate() {
-		return this.closedate;
-	}
-
-	public void setClosedate(Date closedate) {
-		this.closedate = closedate;
-	}
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "reviewdate", length = 19)
-	public Date getReviewdate() {
-		return this.reviewdate;
-	}
-
-	public void setReviewdate(Date reviewdate) {
-		this.reviewdate = reviewdate;
-	}
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "aprovaldate", length = 19)
-	public Date getAprovaldate() {
-		return this.aprovaldate;
-	}
-
-	public void setAprovaldate(Date aprovaldate) {
-		this.aprovaldate = aprovaldate;
-	}
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "testingdate", length = 19)
-	public Date getTestingdate() {
-		return this.testingdate;
-	}
-
-	public void setTestingdate(Date testingdate) {
-		this.testingdate = testingdate;
-	}
-
-	@Column(name = "buildversion")
-	public Integer getBuildversion() {
-		return this.buildversion;
-	}
-
-	public void setBuildversion(Integer buildversion) {
+	public void setBuildversion(String buildversion) {
 		this.buildversion = buildversion;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "project")
 	public Set<Issue> getIssues() {
-		return this.issues;
+		return issues;
 	}
 
 	public void setIssues(Set<Issue> issues) {
 		this.issues = issues;
+	}
+
+	public String getProjectKey() {
+		return projectKey;
+	}
+
+	public void setProjectKey(String projectKey) {
+		this.projectKey = projectKey;
+	}
+
+	public String getProjectCategory() {
+		return projectCategory;
+	}
+
+	public void setProjectCategory(String projectCategory) {
+		this.projectCategory = projectCategory;
+	}
+
+	public String getProjectLead() {
+		return projectLead;
+	}
+
+	public void setProjectLead(String projectLead) {
+		this.projectLead = projectLead;
+	}
+
+	public Integer getProjectLeadId() {
+		return projectLeadId;
+	}
+
+	public void setProjectLeadId(Integer projectLeadId) {
+		this.projectLeadId = projectLeadId;
+	}
+
+	public String getProjectType() {
+		return projectType;
+	}
+
+	public void setProjectType(String projectType) {
+		this.projectType = projectType;
+	}
+
+	public String getProjectUrl() {
+		return projectUrl;
+	}
+
+	public void setProjectUrl(String projectUrl) {
+		this.projectUrl = projectUrl;
+	}
+
+	public String getProjectClosed() {
+		return projectClosed;
+	}
+
+	public void setProjectClosed(String projectClosed) {
+		this.projectClosed = projectClosed;
+	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getSubmitDate() {
+		return submitDate;
+	}
+
+	public void setSubmitDate(Date submitDate) {
+		this.submitDate = submitDate;
+	}
+
+	public Date getCloseDate() {
+		return closeDate;
+	}
+
+	public void setCloseDate(Date closeDate) {
+		this.closeDate = closeDate;
+	}
+
+	public Date getExpectedDate() {
+		return expectedDate;
+	}
+
+	public void setExpectedDate(Date expectedDate) {
+		this.expectedDate = expectedDate;
 	}
 
 }

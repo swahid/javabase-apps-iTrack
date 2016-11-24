@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping(value="issue")
-public class IssuePageController {
+public class IssueViewerController {
 	
 	@Autowired
 	private IssueService issueservice;
@@ -30,6 +30,6 @@ public class IssuePageController {
 		Issue issue = issueservice.getIssueById(issueId);
 		
 		session.setAttribute("issue", issue);
-	return "issue/issuepage";
+	return "issue/issueViewer";
 	}
 }

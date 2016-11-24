@@ -83,7 +83,7 @@ $(document).ready(function($) {
 	        	'<div class="box-footer commetns">'+
 	        	'<div class="pull-right">'+
 	                '<p><a href="#" target="_blank">'+data[i].commentsUser+'</a><br>'+
-	                	'<span>'+date+'</span>'+
+	                	'<small>'+date+'</small>'+
 	                '</p>'+
 	        	'</div>'+
 			    '</div>'+

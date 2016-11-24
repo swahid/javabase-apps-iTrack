@@ -7,7 +7,7 @@
  
  <t:dashboard_top>
 	<jsp:attribute name="header">
-		<script src="<c:url value='/resources/js/funtions/issuePage.js' />"></script>
+		<script src="<c:url value='/resources/js/funtions/issueViewer.js' />"></script>
 	</jsp:attribute>
 	<jsp:body>
 	 <div class="row">
