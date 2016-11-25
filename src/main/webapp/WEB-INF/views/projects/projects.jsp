@@ -25,11 +25,11 @@
 	<div class="row">
 	<div class="box box-success">
       <ul class="sidebar-menu">
-           <!-- <li class="active"><a href="user/dashboard"><i class="fa fa-link"></i> <span>Dashboard</span></a></li> -->
+           <li class="active"><a href="projects"><i class="fa fa-link"></i> <span>Projects</span></a></li>
 		   <li class="treeview">
-              <a href="#"><i class="fa fa-link"></i> <span>PROJECT TYPES</span><i class="fa fa-angle-down pull-up"></i></a>
+              <a href="#"><i class="fa fa-link"></i> <span>Project Types</span><i class="fa fa-angle-down pull-up"></i></a>
               <ul class="treeview-menu">
-                <li><a href="dashboard"><span>Dashboard</span></a></li>
+                <li><a href="dashboard">Dashboard</a></li>
                 <li><a href="#">Link in level 2</a></li>
               </ul>
             </li>
@@ -42,8 +42,8 @@
 	
 	<jsp:body>
 	<!-- row Table start-->
-      <!-- <div class="row">
-        <div class="col-xs-12"> -->
+      <div class="row">
+        <div class="col-xs-12" style="padding-left: 4px; padding-right: 4px;">
           <div class="box box-success">
             <div class="box-header">
               <h3 class="box-title">All Projects</h3>
@@ -74,8 +74,8 @@
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
-  <!--       </div>
-      </div> -->
+        </div>
+      </div>
 	<!-- row Table end-->
 	</jsp:body>
 </t:dashboard_body>

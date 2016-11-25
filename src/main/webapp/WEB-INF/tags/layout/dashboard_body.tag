@@ -172,13 +172,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="row-md-10">
 	        <div class="col-md-2">
 	        <!-- sidebar: style can be found in sidebar.less -->
-	        <section class="sidebar" style="margin-top: 15px">
+	        <section class="sidebar" style="margin-top: 15px; padding-right: 0px">
 	          <!-- Sidebar Menu -->
 	          <jsp:invoke fragment="sidebar"/>
 	        </section>
 	        <!-- /.sidebar -->
 	        </div>
-        <div class="col-md-10">
+        <div class="col-md-10" style="padding-left: 0">
         <section class="content">
           <!-- Your Page Content Here -->
             <jsp:doBody/>
