@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.javabase.apps.controller;
+package org.javabase.apps.controller.issue;
 
 import java.util.Date;
 import java.util.HashMap;
