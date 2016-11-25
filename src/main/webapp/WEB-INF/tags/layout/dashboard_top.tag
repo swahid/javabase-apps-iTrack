@@ -93,7 +93,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">DashBoard<span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="${index}dashboard">DashBoard<span class="sr-only">(current)</span></a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">

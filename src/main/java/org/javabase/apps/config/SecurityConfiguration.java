@@ -38,7 +38,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	        .antMatchers("/registration").permitAll()
 	        .antMatchers("/**").authenticated()
 //	        .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
-	        .and().formLogin().loginPage("/login")
+	        .and().formLogin().loginPage("/login").defaultSuccessUrl("/dashboard", true)
 	        .usernameParameter("username").passwordParameter("password")
 	        .failureUrl("/login?error=1")
 	        .and().csrf() //csrf enable so you need to send csrf parameter

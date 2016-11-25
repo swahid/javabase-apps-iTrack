@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @since	1.0.0
  */
 @Controller
-@RequestMapping(value ="/Dashboard")
+@RequestMapping(value ="/dashboard")
 public class DashboardController {
 	
 	private static final Logger log = LoggerFactory.getLogger(DashboardController.class);
@@ -47,39 +47,8 @@ public class DashboardController {
     		User user = userservice.getUserByUsername(username);
     	    response.setAttribute("user", user);
     	}
-		log.info("Welcome home! ");
-		return "home";
+		log.info("Welcome Dashboard! ");
+		return "dashboard";
 	}
 	
-	/*@ResponseBody
-	@RequestMapping(value = { "/issue/load"}, method = RequestMethod.GET)
-	public Map<String, Object> loadIssue(){
-		Map<String, Object> response= new HashMap<String, Object>();
-		
-		List<Issue> issue= issueservice.getAllIssue();
-		
-		response.put("Success", true);
-		response.put("code", "200");
-		response.put("data", issue);
-		response.put("message", "insert sucessfull");
-		return response;
-		
-	}
-	@ResponseBody
-	@RequestMapping(value = { "/issue/create"}, method = RequestMethod.POST)
-	public Map<String, Object> createIssue(@RequestBody Issue issue){
-		Map<String, Object> response= new HashMap<String, Object>();
-		issue.setCreatedate(new Date());
-		issue.setState("Active");
-		if (issueservice.insertIssue(issue)) {
-			return loadIssue();
-		}else {
-			response.put("error", true);
-			response.put("code", "404");
-			response.put("message", "insert unsucessfull");
-			
-			return response;
-		}
-		
-	}*/
 }
