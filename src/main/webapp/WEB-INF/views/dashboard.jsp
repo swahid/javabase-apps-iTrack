@@ -41,10 +41,11 @@
 	            </div>
 	            <!-- /.box-header -->
 	            <div class="box-body">
-	              	NAVIGATION<br>
-					Browse Projects<br>
-					Search for Issues<br>
-					Create Issue<br>
+	              	<b>NAVIGATION</b><br>
+					<a href="projects">Browse Projects</a><br>
+					<a href="teams">Browse Teams</a><br>
+					<a href="issue">Search for Issues</a><br>
+					<a href="issue/create">Create Issue</a><br>
 	            </div>
           	</div>
           	<!-- 1st box Dashboard end-->
