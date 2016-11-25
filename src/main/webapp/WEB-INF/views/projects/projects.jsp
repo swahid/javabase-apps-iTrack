@@ -62,12 +62,12 @@
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover" id="issueTable">
                 <tr>
-                  <th style="width: 120px">Project Name</th>
-                  <th >Project Key</th>
+                  <th style="width: 150px">Project Name</th>
+                  <th>Project Key</th>
                   <th>Project Type</th>
                   <th>Project Lead</th>
-                  <th>Project Category</th>
-                  <th style="width: 220px">Project URL</th>
+                  <th>Category</th>
+                  <th style="width: 200px">Project URL</th>
                 </tr>
               </table>
             </div>
