@@ -18,7 +18,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>IssueTracking System</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -158,41 +157,71 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </div>
         </nav>
       </header>
+      
+      <div class="col-md-2">
+      <!-- Left side column. contains the logo and sidebar -->
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <!-- Sidebar user panel (optional) -->
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img src="resources/images/avatar.png" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+              <p>${user.firstName} ${user.lastName}</p>
+              <!-- Status -->
+              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+          </div>
 
+          <!-- search form (Optional) -->
+<!--           <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+              <input type="text" name="q" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form> -->
+          <!-- /.search form -->
+
+          <!-- Sidebar Menu -->
+          <ul class="sidebar-menu">
+            <li class="active"><a href="user/dashboard"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
+<!--             <li class="treeview">
+              <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="#">Link in level 2</a></li>
+                <li><a href="#">Link in level 2</a></li>
+              </ul>
+            </li> -->
+          </ul><!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+      </div>
+      
+      <div class="col-md-10">
       <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper row">
-      <div class="row-md-2">
+      <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <section class="content-header">
+        <section class="content-header" style="padding-left: 5px; padding-right: 5px;">
        		<jsp:invoke fragment="contentHeader"/>
         </section>
-		</div>
+
         <!-- Main content -->
-        
-        <div class="row-md-10">
-	        <div class="col-md-2">
-	        <!-- sidebar: style can be found in sidebar.less -->
-	        <section class="sidebar" style="margin-top: 15px; padding-right: 0px">
-	          <!-- Sidebar Menu -->
-	          <jsp:invoke fragment="sidebar"/>
-	        </section>
-	        <!-- /.sidebar -->
-	        </div>
-        <div class="col-md-10" style="padding-left: 0">
-        <section class="content">
+        <section class="content" style="padding-left: 5px; padding-right: 5px;">
           <!-- Your Page Content Here -->
             <jsp:doBody/>
         </section><!-- /.content -->
-        </div>
-        </div>
       </div><!-- /.content-wrapper -->
 
       <!-- Main Footer -->
       <footer class="main-footer">
         <!-- Default to the left -->
         <jsp:invoke fragment="footer"/>
-        <strong>Copyright &copy; 2016 <a href="http://javabase.info">@Javabase Inc.</a></strong> All rights reserved.
+        <strong>Copyright &copy; 2016 <a href="http://javabase.info">@Javabase Inc</a></strong> All rights reserved.
       </footer>
+      </div>
     </div><!-- ./wrapper -->
 
 

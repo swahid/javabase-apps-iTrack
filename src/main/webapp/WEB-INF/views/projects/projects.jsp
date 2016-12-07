@@ -43,7 +43,7 @@
 	<jsp:body>
 	<!-- row Table start-->
       <div class="row">
-        <div class="col-xs-12" style="padding-left: 4px; padding-right: 4px;">
+        <div class="col-xs-12">
           <div class="box box-success">
             <div class="box-header">
               <h3 class="box-title">All Projects</h3>
