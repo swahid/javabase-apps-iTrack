@@ -40,6 +40,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="resources/jquery/2.1.4/jquery.min.js"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="resources/js/bootstrap.min.js"></script>
+    <!-- DataTables -->
+	<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+	<script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
+	<!-- SlimScroll -->
+	<script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+	<!-- FastClick -->
+	<script src="plugins/fastclick/fastclick.js"></script>
     <!-- AdminLTE App -->
     <script src="resources/js/app.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
