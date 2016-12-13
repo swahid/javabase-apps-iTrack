@@ -1,9 +1,5 @@
 <%@ include file="/WEB-INF/tags/layout/includes.jsp"%>
-<!-- 
- @author  Saurav Wahid<swahidfx@gmail.com>
- @version	1.0.0
- @since	1.0.0
- -->
+
 <t:dashboard_body>
 	<jsp:attribute name="header">
 		<!-- Header title here -->
@@ -21,23 +17,26 @@
           </div>
 	</jsp:attribute>
 	
-	<jsp:attribute name="sidebar">
-	<div class="row">
-	<div class="box box-success">
-      <ul class="sidebar-menu">
-           <li class="active"><a href="projects"><i class="fa fa-link"></i> <span>Projects</span></a></li>
-		   <li class="treeview">
-              <a href="#"><i class="fa fa-link"></i> <span>Project Types</span><i class="fa fa-angle-down pull-up"></i></a>
-              <ul class="treeview-menu">
-                <li><a href="dashboard">Dashboard</a></li>
-                <li><a href="#">Link in level 2</a></li>
-              </ul>
-            </li>
-         </ul><!-- /.sidebar-menu -->
-    </div>
-	</div>
+	<jsp:attribute name="sidebarUserPanel">
+		<div class="pull-left image">
+           <img src="resources/images/avatar.png" class="img-circle" alt="User Image">
+         </div>
+         <div class="pull-left info">
+           <p>All Projects</p>
+           <!-- Status -->
+           <!-- <a href="#"><i class="fa fa-circle text-success"></i> Online</a> -->
+         </div>
 	</jsp:attribute>
-	
+	<jsp:attribute name="sidebarMenu">
+		<li class="active"><a href="dashboard"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span></a>
+          <ul class="treeview-menu">
+            <li><a href="#">Link in level 2</a></li>
+            <li><a href="#">Link in level 2</a></li>
+          </ul>
+        </li>
+	</jsp:attribute>
 	
 	
 	<jsp:body>

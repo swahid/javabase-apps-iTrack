@@ -1,7 +1,8 @@
 <%@tag description="iTrack Layout" pageEncoding="UTF-8"%>
 <%@attribute name="header" fragment="true" %>
 <%@attribute name="footer" fragment="true" %>
-<%@attribute name="sidebar" fragment="true" %>
+<%@attribute name="sidebarUserPanel" fragment="true" %>
+<%@attribute name="sidebarMenu" fragment="true" %>
 <%@attribute name="contentHeader" fragment="true" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- 
@@ -171,14 +172,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <section class="sidebar">
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel">
-            <div class="pull-left image">
-              <img src="resources/images/avatar.png" class="img-circle" alt="User Image">
-            </div>
-            <div class="pull-left info">
-              <p>${user.firstName} ${user.lastName}</p>
-              <!-- Status -->
-              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-            </div>
+          	<jsp:invoke fragment="sidebarUserPanel"/>
           </div>
 
           <!-- search form (Optional) -->
@@ -194,14 +188,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <!-- Sidebar Menu -->
           <ul class="sidebar-menu">
-            <li class="active"><a href="user/dashboard"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-<!--             <li class="treeview">
-              <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
-              <ul class="treeview-menu">
-                <li><a href="#">Link in level 2</a></li>
-                <li><a href="#">Link in level 2</a></li>
-              </ul>
-            </li> -->
+          <jsp:invoke fragment="sidebarMenu"/>
+            
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->

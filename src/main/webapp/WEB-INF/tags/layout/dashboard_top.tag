@@ -1,7 +1,6 @@
 <%@tag description="iTrack Layout" pageEncoding="UTF-8"%>
 <%@attribute name="header" fragment="true" %>
 <%@attribute name="footer" fragment="true" %>
-<%@attribute name="sidebar" fragment="true" %>
 <%@attribute name="contentHeader" fragment="true" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- 
@@ -41,12 +40,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Bootstrap 3.3.5 -->
     <script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
     <!-- DataTables -->
-	<script src="plugins/datatables/jquery.dataTables.min.js"></script>
-	<script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
+	<script src="resources/plugins/datatables/jquery.dataTables.min.js"></script>
+	<script src="resources/plugins/datatables/dataTables.bootstrap.min.js"></script>
 	<!-- SlimScroll -->
-	<script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+	<script src="resources/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 	<!-- FastClick -->
-	<script src="plugins/fastclick/fastclick.js"></script>
+	<script src="resources/plugins/fastclick/fastclick.js"></script>
     <!-- AdminLTE App -->
     <script src="<c:url value='/resources/js/app.min.js' />"></script>
     <script src="<c:url value='/resources/js/moment.js' />"></script>
