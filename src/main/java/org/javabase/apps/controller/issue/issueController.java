@@ -68,7 +68,7 @@ public class issueController {
 		response.put("Success", true);
 		response.put("code", "200");
 		response.put("data", issue);
-		response.put("message", "insert sucessfull");
+		response.put("recordsTotal", issue.size());
 		return response;
 		
 	}
